@@ -6,7 +6,7 @@ import Register from './../app/register/page';
 const MainHeader = () => {
   return (
     <header className="flex justify-between items-center p-8 md:px-40">
-      <Link className="flex items-center justify-center gap-8 text-[#4468ca] font-bold uppercase text-xl tracking-widest" href="/">
+      <Link className="flex items-center justify-center gap-8 text-blue-900 text-3xl font-bold font-family: Montserrat, serif uppercase" href="/">
         <Image className="w-20 h-20 object-contain drop-shadow-md" src={logoImg} alt="A plate with food on it" priority />
         My Next Level Games
       </Link>
@@ -15,9 +15,9 @@ const MainHeader = () => {
           <li>
             <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/games">Browse games</Link>
           </li>
-          <li>
+          {/* <li>
             <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/community">Community</Link>
-          </li>
+          </li> */}
           <li>
             <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/register">Register</Link>
           </li>
