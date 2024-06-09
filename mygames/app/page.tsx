@@ -17,7 +17,7 @@ const Home = () => {
           </div>
           <div className="text-lg flex gap-4">
             <Link href="/community" className="mt-4 px-4 py-2 bg-gradient-to-r rounded from-[#77d5f1] to-[#2b8af7] text-white font-bold no-underline">Join the Community</Link>
-            <Link href="/meals" className="mt-4 px-4 py-2 bg-transparent font-normal text-blue-900 border rounded border-blue-600 no-underline">Explore Games</Link>
+            <Link href="/games" className="mt-4 px-4 py-2 bg-transparent font-normal text-blue-900 border rounded border-blue-600 no-underline">Explore Games</Link>
           </div>
         </div>
       </header>

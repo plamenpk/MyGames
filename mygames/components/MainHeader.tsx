@@ -2,6 +2,7 @@ import Link from "next/link";
 import logoImg from "@/assets/tic-tac-toe.png";
 import Image from "next/image";
 import Register from './../app/register/page';
+import NavLink from "./NavLink";
 
 const MainHeader = () => {
   return (
@@ -13,16 +14,16 @@ const MainHeader = () => {
       <nav>
         <ul className="flex gap-6 list-none m-0 p-0 text-lg">
           <li>
-            <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/games">Browse games</Link>
+            <NavLink href="/games" >Browse games</NavLink>
           </li>
           {/* <li>
             <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/community">Community</Link>
           </li> */}
           <li>
-            <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/register">Register</Link>
+            <NavLink href="/register">Register</NavLink>
           </li>
           <li>
-            <Link className="text-[#4468ca] text-xl px-4 py-2 rounded-lg hover:text-[#4a65af]" href="/logIn">Log In</Link>
+            <NavLink href="/logIn">Log In</NavLink>
           </li>
         </ul>
       </nav>
