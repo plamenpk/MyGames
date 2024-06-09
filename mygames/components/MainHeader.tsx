@@ -1,8 +1,7 @@
 import Link from "next/link";
 import logoImg from "@/assets/tic-tac-toe.png";
 import Image from "next/image";
-import Register from './../app/register/page';
-import NavLink from "./NavLink";
+import NavLink from "./UI/NavLink";
 
 const MainHeader = () => {
   return (
