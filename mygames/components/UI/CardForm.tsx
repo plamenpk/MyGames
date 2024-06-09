@@ -1,22 +1,26 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 import cardLogo from "@/assets/tic-tac-toe1.png";
 import Link from "next/link";
 
 interface CardProps {
+  img: StaticImageData;
   children: ReactNode;
 }
 
-const CardForm = ({ children }: CardProps) => {
+const CardForm = ({ img, children }: CardProps) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="relative w-48 h-48">
-        <Image
-          className="rounded-t-lg object-cover"
-          src={cardLogo}
-          alt="Game image"
-          fill
-        />
+        <Link href="#">
+
+          <Image
+            className="rounded-t-lg object-cover"
+            src={img}
+            alt="Game image"
+            fill
+          />
+        </Link>
       </div>
       <div className="p-5">
         <Link href="#">
@@ -46,7 +50,7 @@ const CardForm = ({ children }: CardProps) => {
           </svg>
         </Link>
       </div>
-    </div>
+    </div >
   );
 };
 
