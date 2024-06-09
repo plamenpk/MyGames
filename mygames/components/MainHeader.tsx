@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logoImg from "@/assets/tic-tac-toe.png";
+import logoImg from "@/assets/tic-tac-toe2.png";
 import Image from "next/image";
 import NavLink from "./UI/NavLink";
 
