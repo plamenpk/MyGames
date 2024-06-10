@@ -1,4 +1,4 @@
-import { GAMES } from "@/data/data";
+import { GAMES } from "@/common/sudoku/data";
 import CardForm from "@/components/UI/CardForm";
 
 const Sudoku = () => {
