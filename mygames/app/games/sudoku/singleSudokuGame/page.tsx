@@ -1,4 +1,4 @@
-import SudokuBoard from "@/components/UI/SudokuBoard";
+import SudokuBoard from "@/components/UI/sudokuComponents/SudokuBoard";
 
 const SudokuPage = () => {
   return (
