@@ -1,14 +1,8 @@
 import CardForm from "@/components/UI/CardForm";
-import sudokuImg1 from "@/assets/tic-tac-toe1.png";
-import sudokuImg2 from "@/assets/tic-tac-toe2.png";
+import logoTicTocToe from"@/assets/tic-tac-toe2.png";
+import logoSudoku from "@/assets/sudoku4.jpg";
 
-const games = [
-  { name: 'Sudoku', img: sudokuImg1 },
-  { name: 'Tic Toc Toe', img: sudokuImg2 },
-  { name: 'Game', img: sudokuImg1 },
-  { name: 'Sudoku', img: sudokuImg1 },
-  { name: 'Tic Toc Toe', img: sudokuImg2 }
-]
+import { GAMES } from './../../data/data';
 
 const GamesPage = () => {
 
@@ -22,7 +16,9 @@ const GamesPage = () => {
         <p className="font-normal">Choose your favorite game and enjoy. It is easy and fun!</p>
       </header>
       <main className="m-6 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {games.map((game, i) => <CardForm key={i} img={game.img}>{game.name}</CardForm>)}
+      <CardForm id="" slug="games/ticTocToe" img={logoTicTocToe}>Tic Toc Toe</CardForm>
+      <CardForm id="" slug="games/sudoku" img={logoSudoku}>Sudoku</CardForm>
+        {/* {GAMES.map((game, i) => <CardForm key={i} id={game.id} img={game.img}>{game.name}</CardForm>)} */}
       </main>
     </>
   )
