@@ -2,7 +2,7 @@
 import { type PlayerProps } from "@/common/sudoku/interfaces";
 import { useState } from "react";
 
-const PlayerAlias: React.FC<PlayerProps> = ({ initialName, symbol }) => {
+const PlayerAlias: React.FC<PlayerProps> = ({ initialName, symbol , isActive}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [playerAlias, setPlayerAlias] = useState(initialName)
 
@@ -14,7 +14,7 @@ const PlayerAlias: React.FC<PlayerProps> = ({ initialName, symbol }) => {
     setPlayerAlias(e.target.value)
   }
   return (
-    <li className="list-none p-0 my-0 flex justify-center items-center gap-4">
+    <li className={`list-none p-0 my-0 flex justify-center items-center gap-4 ${isActive ? 'border' : ''}`}>
       <span className="inline-block w-40 text-base text-yellow-200 uppercase m-0 p-2 rounded text-ellipsis text-center">
         {isEditing ? (
           <input
