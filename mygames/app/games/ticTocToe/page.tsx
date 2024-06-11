@@ -1,6 +1,4 @@
-
-import Player from '@/components/ticTacToe/Player';
-import GamesPage from './../page';
+import PlayerAlias from '@/components/ticTacToe/PlayerAlias';
 
 const TicTacToe = () => {
   return (
@@ -15,8 +13,8 @@ const TicTacToe = () => {
     <main>
       <div className="max-w-2xl mx-auto my-12 p-8 rounded-lg bg-gradient-to-b from-[#383624] to-[#282617] shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
         <ol className="flex justify-center items-center gap-x-32">
-          <Player name="player 1" symbol="O"></Player>
-          <Player name="player 2" symbol="X"></Player>
+          <PlayerAlias initialName="player 1" symbol="O"></PlayerAlias>
+          <PlayerAlias initialName="player 2" symbol="X"></PlayerAlias>
         </ol>
       </div>
       log
