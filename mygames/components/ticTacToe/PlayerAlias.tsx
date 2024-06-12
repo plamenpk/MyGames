@@ -1,13 +1,14 @@
 'use client'
-import { type PlayerProps } from "@/common/sudoku/interfaces";
+import { type PlayerAliasProps } from "@/common/ticTacToe/interfaces";
 import { useState } from "react";
 
-const PlayerAlias: React.FC<PlayerProps> = ({ initialName, symbol , isActive}) => {
+const PlayerAlias: React.FC<PlayerAliasProps> = ({ initialName, symbol, isActive, onChangeAlias }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [playerAlias, setPlayerAlias] = useState(initialName)
 
   const handelEdit = () => {
     setIsEditing(prevState => !prevState);
+    if (isEditing) onChangeAlias(symbol, playerAlias);
   }
 
   const handleChangeAlias = (e: React.ChangeEvent<HTMLInputElement>) => {

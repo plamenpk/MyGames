@@ -11,5 +11,24 @@ export interface Turn {
 }
 export interface GameBoardProps {
   onSelectSquare: (rowIndex: number, colIndex: number) => void;
-  turns: Turn[]
+  board: GameBoardMatrixProps;
+}
+
+export interface LogProps {
+  turns: Turn[];
+}
+export interface PlayersProps {
+  X: string;
+  O: string
+}
+export type PlayerSymbol = 'X' | 'O';
+export interface PlayerAliasProps {
+  initialName: string;
+  symbol: string;
+  isActive: boolean;
+  onChangeAlias: (symbol: string, alias: string) => void
+}
+export interface GameOverProps {
+  winner: string | undefined
+  onRestart: () => void
 }
