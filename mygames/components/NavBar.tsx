@@ -3,6 +3,7 @@
 import { Fragment, useState, useEffect, useRef } from 'react'
 import logoImg from "@/assets/tic-tac-toe2.png";
 import Link from 'next/link';
+import NavLink from './UI/NavLink';
 import {
   Dialog,
   DialogPanel,
@@ -30,9 +31,9 @@ import Image from 'next/image'
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
   { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  // { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -69,8 +70,8 @@ const NavBar = () => {
     <header className="">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1 text-blue-900 text-3xl font-bold font-family: Montserrat, serif uppercase">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <Link href="/" className="flex items-center justify-center gap-8 -m-1.5 p-1.5">
+            {/* <span className="sr-only">Your Company</span> */}
             <Image className="w-20 h-20" src={logoImg} alt="" priority />
             My Next Level Games
           </Link>
@@ -85,13 +86,13 @@ const NavBar = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
           <Popover className="relative" ref={popoverRef}>
             <PopoverButton
-              className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
+              className="flex items-center gap-x-1 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
               onClick={() => setPopoverOpen((prev) => !prev)}
             >
-              Product
+              Browse games
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </PopoverButton>
 
@@ -140,7 +141,7 @@ const NavBar = () => {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Features
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -148,12 +149,14 @@ const NavBar = () => {
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
-          </a>
+          </a> */}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <NavLink href="/register">Register</NavLink>
+          <div className='pr-2' />
+          <NavLink href="/logIn">
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </NavLink>
         </div>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -164,7 +167,7 @@ const NavBar = () => {
               <span className="sr-only">Your Company</span>
               <Image
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={logoImg}
                 alt=""
               />
             </a>
