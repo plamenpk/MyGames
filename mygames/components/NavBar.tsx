@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import logoImg from "@/assets/tic-tac-toe2.png";
 import Link from 'next/link';
 import NavLink from './UI/NavLink';
@@ -26,14 +26,12 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import Image from 'next/image'
+import Image from 'next/image';
+import { usePathname } from "next/navigation";
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  // { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Tic Tac Toe', description: '', href: '/games/ticTocToe', icon: ChartPieIcon },
+  { name: 'Sudoku', description: '', href: '/games/sudoku', icon: CursorArrowRaysIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -48,6 +46,7 @@ const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const ifPath = usePathname().startsWith('/games');
 
   const handleClickOutside = (event: MouseEvent) => {
     if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
@@ -89,11 +88,14 @@ const NavBar = () => {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative" ref={popoverRef}>
             <PopoverButton
-              className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
+              className={ifPath
+                ? "flex items-center gap-x-1 text-blue-800 text-xl px-4 py-2 hover:text-blue-800"
+                : "flex items-center gap-x-1 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
+              }
               onClick={() => setPopoverOpen((prev) => !prev)}
             >
               Browse games
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon className="h-5 w-5 flex-none text-blue-500" aria-hidden="true" />
             </PopoverButton>
 
             <Transition
@@ -120,7 +122,7 @@ const NavBar = () => {
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
+                        {/* <p className="mt-1 text-gray-600">{item.description}</p> */}
                       </div>
                     </div>
                   ))}
