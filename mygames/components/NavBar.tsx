@@ -86,10 +86,10 @@ const NavBar = () => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative" ref={popoverRef}>
             <PopoverButton
-              className="flex items-center gap-x-1 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
+              className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
               onClick={() => setPopoverOpen((prev) => !prev)}
             >
               Browse games
