@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '@/slices/counterSlice';
+import sudokuReducer from '@/slices/sudokuSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+     sudoku: sudokuReducer,
   },
 })
 

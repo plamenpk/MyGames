@@ -7,12 +7,12 @@ const Counter = () => {
   const [amount, setAmount] = useState(0);
   const count = useSelector(selectValue);
   const dispatch = useDispatch();
-  console.log(amount)
-
+ 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(Number(e.target.value));
     dispatch(incrementByAmount(Number(e.target.value)))
   };
+  
   return (
     <div>
       <div className='flex justify-center items-center'>
