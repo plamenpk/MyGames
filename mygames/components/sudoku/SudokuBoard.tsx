@@ -1,15 +1,26 @@
 'use client'
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { SudokuBoardProps } from '@/common/sudoku/interfaces';
 
 const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
+  const [gameBoard, setGameBoard] = useState(board);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
+    const value = e.target.value === '' ? null : Number(e.target.value);
+
+    setGameBoard(prevBoard => {
+      const newBoard = prevBoard.map((row) => [...row]);
+      newBoard[row][col] = value;
+      return newBoard;
+    });
+  };
 
   return (
     <>
       <div id='SudokuBoard' className="flex justify-center items-center min-h-screen">
         {/* <div className="grid grid-cols-9 gap-1 p-4 bg-white border-4 border-black"> */}
         <div className="grid grid-cols-9 gap-1  border-4 border-blue-800 rounded-sm">
-          {board.map((row, rowIndex) => (
+          {gameBoard.map((row, rowIndex) => (
             <React.Fragment key={rowIndex}>
               {row.map((cell, colIndex) => (
                 <input
@@ -18,6 +29,7 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
                     } ${rowIndex === 2 || rowIndex === 5 ? 'border-b-4' : ''}`}
                   defaultValue={cell !== null ? cell.toString() : ''}
                   maxLength={1}
+                  onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
                 />
               ))}
             </React.Fragment>
@@ -34,6 +46,7 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
 // import { useSelector, useDispatch } from 'react-redux';
 // import { RootState } from '@/store/store';
 // import { updateCell } from '@/slices/sudokuSlice';
+import GameBoard from './../ticTacToe/GameBoard';
 
 // interface SudokuBoardProps {
 //   board: (number | null)[][];
