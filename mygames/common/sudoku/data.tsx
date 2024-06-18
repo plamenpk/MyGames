@@ -9,25 +9,25 @@ export const GAMES = [
 ]
 export const sudokuTemplates = [
   [
-  [1, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [1, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, 1, null, null],
-  [null, null, null, null, null, null, null, 6, null],
-  [1, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null]
-],
-[
-  [2, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, 2, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [2, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, 2, null, null],
-  [null, null, null, null, null, null, null, 6, null],
-  [2, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null, null, null]
-]
+    [6, null, 4, 5, 9, 7, null, 1, null],
+    [null, 7, null, null, null, null, null, 5, null],
+    [1, null, null, null, null, null, null, null, null],
+    [4, null, null, 8, 1, 5, null, null, 2],
+    [2, null, null, 4, null, 3, null, null, 5],
+    [5, null, null, 9, 2, 6, null, null, 3],
+    [null, null, null, null, null, null, null, null, 7],
+    [null, 4, null, null, null, null, null, 3, null],
+    [null, 2, null, 3, 4, 8, 5, null, 9]
+  ],
+  [
+    [2, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, 2, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [2, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, 2, null, null],
+    [null, null, null, null, null, null, null, 6, null],
+    [2, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null]
+  ]
 ]

@@ -6,7 +6,7 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen">
+      <div id='SudokuBoard' className="flex justify-center items-center min-h-screen">
         {/* <div className="grid grid-cols-9 gap-1 p-4 bg-white border-4 border-black"> */}
         <div className="grid grid-cols-9 gap-1  border-4 border-blue-800 rounded-sm">
           {board.map((row, rowIndex) => (

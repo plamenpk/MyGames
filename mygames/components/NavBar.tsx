@@ -67,7 +67,7 @@ const NavBar = () => {
 
   return (
     <header className="">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1 text-blue-900 text-3xl font-bold font-family: Montserrat, serif uppercase">
           <Link href="/" className="flex items-center justify-center gap-8 -m-1.5 p-1.5">
             {/* <span className="sr-only">Your Company</span> */}
