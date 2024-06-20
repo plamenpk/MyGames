@@ -1,6 +1,7 @@
 'use client'
 import React, { FC, useState } from 'react';
 import { SudokuBoardProps } from '@/common/sudoku/interfaces';
+import { isBoardValid } from '@/common/sudoku/helpers';
 
 const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
   const [gameBoard, setGameBoard] = useState(board);
@@ -14,6 +15,10 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
       return newBoard;
     });
   };
+
+  if (isBoardValid(gameBoard)) {
+    return <h6>GameOver</h6>
+  }
 
   return (
     <>
@@ -46,7 +51,9 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
 // import { useSelector, useDispatch } from 'react-redux';
 // import { RootState } from '@/store/store';
 // import { updateCell } from '@/slices/sudokuSlice';
-import GameBoard from './../ticTacToe/GameBoard';
+// import GameBoard from './../ticTacToe/GameBoard';
+// import { isFilled } from '@/common/sudoku/helpers';
+// import GameOver from './../ticTacToe/GameOver';
 
 // interface SudokuBoardProps {
 //   board: (number | null)[][];

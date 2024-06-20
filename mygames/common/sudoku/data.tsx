@@ -9,25 +9,25 @@ export const GAMES = [
 ]
 export const sudokuTemplates = [
   [
-    [6, null, 4, 5, 9, 7, null, 1, null],
-    [null, 7, null, null, null, null, null, 5, null],
-    [1, null, null, null, null, null, null, null, null],
-    [4, null, null, 8, 1, 5, null, null, 2],
-    [2, null, null, 4, null, 3, null, null, 5],
-    [5, null, null, 9, 2, 6, null, null, 3],
-    [null, null, null, null, null, null, null, null, 7],
-    [null, 4, null, null, null, null, null, 3, null],
-    [null, 2, null, 3, 4, 8, 5, null, 9]
+    [6, 1, 4, 5, 9, 4, 5, 9, 7],
+    [4, 7, 4, 5, 9, 4, 5, 9, 7],
+    [1, 4, 5, 9, 7, 4, 5, 9, 7],
+    [4, 4, 5, 9, 7, 5, 9, 7, 2],
+    [6, 1, 4, 5, 9, 4, 5, 9, 7],
+    [4, 7, 4, 5, 9, 4, 5, 9, 7],
+    [1, 4, 5, 9, 7, 4, 5, 9, 7],
+    [4, 4, 5, 9, 7, 5, 9, 7, 2],
+    [1, 2, 6, 3, 4, 8, 5, null, null]
   ],
   [
-    [2, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, 2, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [2, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, 2, null, null],
-    [null, null, null, null, null, null, null, 6, null],
-    [2, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null]
+    [1, 7, 9, 5, 3, 8, 4, 2, 6],
+    [5, 4, 6, 7, 9, 2, 1, 8, 3],
+    [3, 8, 2, 6, 1, 4, 5, 9, 7],
+    [8, 2, 4, 3, 7, 1, 6, 5, 9],
+    [6, 1, 7, 8, 5, 9, 2, 3, 4],
+    [9, 5, 3, 2, 4, 6, 7, 1, 8],
+    [4, 3, 5, 9, 2, 7, 8, 6, null],
+    [7, 9, 8, 1, 6, 5, 3, 4, null],
+    [2, 6, 1, 4, 8, 3, 9, 7, 5]
   ]
 ]
