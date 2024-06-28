@@ -7,6 +7,18 @@ export const GAMES = [
   { id: 'id4', name: 'Sudoku', img: sudokuImg1 },
   { id: 'id5', name: 'Tic Toc Toe', img: sudokuImg2 }
 ]
+
+export const newSudokuBoard = [
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null]
+]
 export const sudokuTemplates = [
   [
     [6, 1, 4, 5, 9, 4, 5, 9, 7],
