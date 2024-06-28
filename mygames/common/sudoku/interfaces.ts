@@ -6,3 +6,6 @@ export interface SudokuPageProp {
 export interface SudokuBoardProps {
   board: (number | null)[][];
 }
+
+type SudokuCell = number | null;
+export type NewSudokuBoardType = SudokuCell[][];
