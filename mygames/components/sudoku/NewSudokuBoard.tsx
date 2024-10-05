@@ -41,7 +41,7 @@ const NewSudokuBoard: FC = () => {
 
   return (
     <form>
-      <div id='container' className="grid grid-cols-3 min-h-screen m-0 p-0">
+      <div id='container' className="grid grid-cols-3 m-0 p-0">
         <div className="col-span-2 flex justify-center items-center m-0 p-0">
           <div className="grid grid-cols-9 gap-1 border-4 border-blue-800 rounded-sm">
             {gameBoard.map((row, rowIndex) => (
