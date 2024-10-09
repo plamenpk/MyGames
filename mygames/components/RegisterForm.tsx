@@ -3,6 +3,8 @@ import React, { FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signIn } from "next-auth/react";
+import logoImg from "@/assets/tic-tac-toe2.png";
+import Image from 'next/image';
 
 const RegisterForm = () => {
 
@@ -78,28 +80,32 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className='grid place-items-center h-screen'>
-      <div className='shadow-lg p-5 rounded-lg border-t-8 border-r-8 border-green-400'>
-        <h1 className='text-xl my-3'>Register</h1>
+    <div className='grid place-items-center pt-6'>
+      <div className="shadow-lg px-32 py-20 rounded-sm border border-blue-600 bg-white">
+        <h1 className="text-xl my-3 text-center">Register</h1>
+        <Image src={logoImg} alt="" priority className='mx-auto my-3 w-16 h-16' />
         <form onSubmit={submitHandler} className='flex flex-col gap-3'>
           <input
+            className='border rounded-sm border-blue-600'
             type='text'
             placeholder='userName'
             onChange={e => setName(e.target.value)}></input>
           <input
+            className='border rounded-sm border-blue-600'
             type='text'
             placeholder='Email'
             onChange={e => setEmail(e.target.value)}></input>
           <input
+            className='border rounded-sm border-blue-600'
             type='password'
             placeholder='Password'
             onChange={e => setPassword(e.target.value)}></input>
-          <button className='bg-green-400 hover:bg-green-500 text-white font-medium px-6 py-2 cursor-pointer'>Register</button>
+          <button className='bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 cursor-pointer'>Register</button>
           {error && (
             <div className='bg-red-500 text-white font-medium px-6 py-2 text-center'>{error}</div>
           )}
-          <Link className="text-sm mt-2 text-right" href={"/"} >
-            Already have an account?<span className="underline"> LogIn</span>
+          <Link className="text-sm mt-2 text-right" href={"/logIn"} >
+            Already have an account?<span className="underline text-blue-500"> LogIn</span>
           </Link>
         </form>
       </div>
