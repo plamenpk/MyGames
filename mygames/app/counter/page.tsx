@@ -10,7 +10,7 @@ const Counter = () => {
  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(Number(e.target.value));
-    dispatch(incrementByAmount(Number(e.target.value)))
+    // dispatch(incrementByAmount(Number(e.target.value)))
   };
   
   return (
