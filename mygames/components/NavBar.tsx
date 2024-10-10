@@ -28,6 +28,9 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image';
 import { usePathname } from "next/navigation";
+import { useSelector } from 'react-redux';
+import { selectValue } from '@/slices/userStateSlice';
+import { signOut } from "next-auth/react";
 
 const products = [
   { name: 'Tic Tac Toe', description: '', href: '/games/ticTocToe', icon: ChartPieIcon },
@@ -47,6 +50,7 @@ const NavBar = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
   const ifPath = usePathname().startsWith('/games');
+  const username = useSelector(selectValue);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
@@ -154,11 +158,17 @@ const NavBar = () => {
           </a> */}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <NavLink href="/register">Register</NavLink>
+          {!username && <NavLink href="/register">Register</NavLink>}
           <div className='pr-2' />
-          <NavLink href="/logIn">
+          {!username && <NavLink href="/logIn">
             Log in <span aria-hidden="true">&rarr;</span>
-          </NavLink>
+          </NavLink>}
+          {username && <button
+            onClick={() => signOut()}
+            className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
+          >
+            {username} Log Out
+          </button>}
         </div>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
