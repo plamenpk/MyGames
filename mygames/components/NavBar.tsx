@@ -31,6 +31,8 @@ import { usePathname } from "next/navigation";
 import { useSelector } from 'react-redux';
 import { selectValue } from '@/slices/userStateSlice';
 import { signOut } from "next-auth/react";
+import { resetUserState } from "@/slices/userStateSlice";
+import { useDispatch } from "react-redux";
 
 const products = [
   { name: 'Tic Tac Toe', description: '', href: '/games/ticTocToe', icon: ChartPieIcon },
@@ -51,12 +53,18 @@ const NavBar = () => {
   const popoverRef = useRef<HTMLDivElement>(null);
   const ifPath = usePathname().startsWith('/games');
   const username = useSelector(selectValue);
+  const dispatch = useDispatch();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (popoverRef.current && !popoverRef.current.contains(event.target as Node)) {
       setPopoverOpen(false);
     }
   };
+
+  const handleClickLogOut = () => {
+    signOut();
+    dispatch(resetUserState());
+  }
 
   useEffect(() => {
     if (popoverOpen) {
@@ -164,7 +172,7 @@ const NavBar = () => {
             Log in <span aria-hidden="true">&rarr;</span>
           </NavLink>}
           {username && <button
-            onClick={() => signOut()}
+            onClick={handleClickLogOut}
             className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
           >
             {username} Log Out
