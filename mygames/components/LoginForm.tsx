@@ -6,17 +6,15 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logoImg from "@/assets/tic-tac-toe2.png";
-import { setUserState, resetUserState, selectValue } from "@/slices/userStateSlice";
+import { setUserState } from "@/slices/userStateSlice";
 import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const { data: session } = useSession(); // useSession hook to get session
+  const { data: session } = useSession();
   const dispatch = useDispatch();
-
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -40,6 +38,7 @@ const LoginForm = () => {
       }
 
       router.replace('/');
+      
     } catch (error) {
       console.log('signIn', error);
       setError("An error occurred. Please try again.");
@@ -78,7 +77,6 @@ const LoginForm = () => {
               {error}
             </div>
           )}
-
           <Link className="text-sm mt-3 text-right" href={"/register"}>
             Don&apos;t have an account? <span className="underline text-blue-500">Register</span>
           </Link>
