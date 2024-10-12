@@ -2,9 +2,11 @@
 import React, { FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import logoImg from "@/assets/tic-tac-toe2.png";
 import Image from 'next/image';
+import { setUserState } from "@/slices/userStateSlice";
+import { useDispatch } from "react-redux";
 
 const RegisterForm = () => {
 
@@ -13,6 +15,8 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+  const { data: session } = useSession();
+  const dispatch = useDispatch();
 
   // console.log(name);
   // console.log(email);
@@ -63,7 +67,7 @@ const RegisterForm = () => {
             return;
           }
 
-          router.replace("dashboard");
+          router.replace("/");
           form.reset();
         } catch (error) {
           console.log('singIn', error);
@@ -76,8 +80,11 @@ const RegisterForm = () => {
     } catch (error) {
       console.log('Error during registration', error)
     }
-
   };
+
+  if (session?.user?.name) {
+    dispatch(setUserState(session.user.name));
+  }
 
   return (
     <div className='grid place-items-center pt-6'>
