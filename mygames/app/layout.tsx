@@ -5,6 +5,8 @@ import { ReactNode } from "react";
 import MainHeader from "@/components/MainHeader";
 import NavBar from "@/components/NavBar";
 import { StoreProvider } from "@/store/StoreProvider";
+import ClientPersistGate from "@/store/ClientPersistGate";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={inter.className}>
         <StoreProvider>
-          <NavBar />
-          {/* <MainHeader/> */}
-          <AuthProvider>{children}</AuthProvider>
+          <ClientPersistGate>
+            <NavBar />
+            {/* <MainHeader/> */}
+            <AuthProvider>{children}</AuthProvider>
+          </ClientPersistGate>
         </StoreProvider>
       </body>
     </html>
