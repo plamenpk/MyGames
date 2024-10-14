@@ -1,18 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { connectMongoDB } from '@/lib/mongodb'; 
-import sudokuBoard from '@/models/sudokuBoard'; 
+import { connectMongoDB } from '@/lib/mongodb';
+import sudokuBoard from '@/models/sudokuBoard';
 
 export const POST = async (req: NextRequest,) => {
 
   try {
-    const { board } = await req.json();
+    const { author, board } = await req.json();
     await connectMongoDB();
-    await sudokuBoard.create({ board });
-    console.log(board)
+    await sudokuBoard.create({ board: { author, board } });
+    // console.log({ author, board })
     return NextResponse.json({ message: "New sudoku board saved." }, { status: 201 });
   } catch (error) {
+    // console.error('Error details:', error);
     return NextResponse.json(
-      { message: "An error occurred while saving new sudoku board." },
+      { message: "An error occurred while saving new sudoku board.", error },
       { status: 500 }
     );
   }
