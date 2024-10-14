@@ -248,12 +248,23 @@ const NavBar = () => {
                 </a>
               </div>
               <div className="py-6">
-                <a
+                {/* <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </a> */}
+                {!username && <Link href="/register" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</Link>}
+                <div className='pr-2' />
+                {!username && <Link href="/logIn" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                  Log in <span aria-hidden="true">&rarr;</span>
+                </Link>}
+                {username &&
+                  <button
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={handleClickLogOut}>
+                    {username} Log Out
+                  </button>}
               </div>
             </div>
           </div>
