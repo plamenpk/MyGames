@@ -49,7 +49,7 @@ const NewSudokuBoard: FC = () => {
         setBoardSaved(true);
         setTimeout(() => {
           setBoardSaved(false);
-        }, 3000);
+        }, 2000);
         setGameBoard(newSudokuBoard);
         setSavingBoard(false);
         console.log('Board saved successfully');
