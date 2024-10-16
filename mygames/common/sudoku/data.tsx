@@ -1,5 +1,6 @@
 import sudokuImg1 from "@/assets/tic-tac-toe1.png";
 import sudokuImg2 from "@/assets/tic-tac-toe2.png";
+
 export const GAMES = [
   { id: 'id1', name: 'Sudoku', img: sudokuImg1 },
   { id: 'id2', name: 'Tic Toc Toe', img: sudokuImg2 },
@@ -42,4 +43,6 @@ export const sudokuTemplates = [
     [7, 9, 8, 1, 6, 5, 3, 4, null],
     [2, 6, 1, 4, 8, 3, 9, 7, 5]
   ]
-]
+];
+
+export const numericKeypad = [[1, 2, 3], [4, 5, 6], [7, 8, 9],];
