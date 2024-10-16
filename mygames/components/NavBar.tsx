@@ -83,7 +83,7 @@ const NavBar = () => {
         <div className="flex lg:flex-1 text-blue-900 text-3xl font-bold font-family: Montserrat, serif uppercase">
           <Link href="/" className="flex items-center justify-center gap-8 -m-1.5 p-1.5">
             {/* <span className="sr-only">Your Company</span> */}
-            <Image className="w-14 h-14" src={logoImg} alt="" priority />
+            <Image className="w-12 h-14" src={logoImg} alt="" priority />
             My Next Level Games
           </Link>
         </div>
