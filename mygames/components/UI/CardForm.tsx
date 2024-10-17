@@ -11,8 +11,8 @@ interface CardProps {
 
 const CardForm = ({ id, slug, img, children }: CardProps) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="relative  w-full h-72">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
+      <div className="relative w-56 h-56">
         <Link href={slug}>
           <Image
             className="rounded-t-lg object-cover"
@@ -22,14 +22,15 @@ const CardForm = ({ id, slug, img, children }: CardProps) => {
           />
         </Link>
       </div>
-      <div className="p-5">
+      <div className="p-5 flex flex-col justify-center">
         <Link href={slug}>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-blue-500  hover:text-blue-800 dark:text-white">
             {children}
           </h5>
         </Link>
-        <Link href={slug}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <Link
+          href={slug}
+          className="inline-flex items-center justify-center font-medium text-center border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Read more
           <svg
@@ -49,7 +50,8 @@ const CardForm = ({ id, slug, img, children }: CardProps) => {
           </svg>
         </Link>
       </div>
-    </div >
+    </div>
+
   );
 };
 

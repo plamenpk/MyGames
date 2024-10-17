@@ -13,7 +13,7 @@ const GamesPage = () => {
         </h1>
         <p className="font-normal">Choose your favorite game and enjoy. It is easy and fun!</p>
       </header>
-      <main className="m-6 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <main className="m-6 px-8 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 justify-center items-center">
       <CardForm id="" slug="games/ticTocToe" img={logoTicTocToe}>Tic Toc Toe</CardForm>
       <CardForm id="" slug="games/sudoku" img={logoSudoku}>Sudoku</CardForm>
         {/* {GAMES.map((game, i) => <CardForm key={i} id={game.id} img={game.img}>{game.name}</CardForm>)} */}
