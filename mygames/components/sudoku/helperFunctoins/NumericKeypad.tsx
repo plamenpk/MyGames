@@ -10,7 +10,7 @@ const NumericKeypad = () => {
 
   return (
     <>
-      <div id='SudokuBoard' className="mt-2 pt-2 w-full max-w-md border rounded">
+      <div id='SudokuBoard' className="mt-2 pt-2 w-full max-w-md">
         <div className="grid grid-cols-3 gap-0 aspect-square">
           {numericKeypad.map((row, rowIndex) => (
             <React.Fragment key={rowIndex}>
