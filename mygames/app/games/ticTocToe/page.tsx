@@ -67,7 +67,7 @@ const TicTacToe = () => {
 
   return (
     <main>
-      <div className="max-w-2xl mx-auto my-10 p-8 rounded-lg bg-gradient-to-b from-[#383624] to-[#282617] shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
+      <div className="max-w-2xl mx-auto my-10 p-8 rounded-lg bg-white shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
         <ol className="flex justify-center items-center gap-x-32">
           <PlayerAlias
             initialName={PLAYERS.X}
