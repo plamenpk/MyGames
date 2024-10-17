@@ -15,7 +15,10 @@ const config: Config = {
       },
       fontFamily: {
         'caprasimo': ['Caprasimo', 'cursive'],
-      }
+      },
+      colors: {
+        customBgGreen: 'rgb(237, 247, 243)',
+      },
     },
   },
   plugins: [],
