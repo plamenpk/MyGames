@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import counterReducer from '@/slices/counterSlice';
 import sudokuReducer from '@/slices/sudokuSlice';
 import userStateReducer from '@/slices/userStateSlice';
+import selectedNumberReducer from '@/slices/selectedNumberSlice';
 
 const persistConfig = {
   key: "root",
@@ -16,7 +17,8 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     sudoku: sudokuReducer,
-    userState: persistedReducer
+    userState: persistedReducer,
+    selectedNumber: selectedNumberReducer
   },
 
   middleware: (getDefaultMiddleware) =>
