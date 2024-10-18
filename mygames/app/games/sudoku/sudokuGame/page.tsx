@@ -7,7 +7,7 @@ const SudokuGame: React.FC = () => {
 
 const board = newSudokuBoard
   return (
-    <div id='SudokuPage' className="flex justify-center items-center">
+    <div>
       <SudokuBoard board={board} />
     </div>
   );
