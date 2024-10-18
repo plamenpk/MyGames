@@ -3,11 +3,13 @@ import React from "react";
 import { numericKeypad } from "@/common/sudoku/data";
 import { useDispatch } from "react-redux";
 import { setSelectedNumber } from "@/slices/selectedNumberSlice";
+import { updateCell } from "@/slices/sudokuSlice";
 
 const NumericKeypad = () => {
   const dispatch = useDispatch();
   const handleOnClick = (num: number) => {
     dispatch(setSelectedNumber(num));
+
   };
 
   return (
