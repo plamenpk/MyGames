@@ -1,12 +1,14 @@
 'use client'
 import React from "react";
 import { numericKeypad } from "@/common/sudoku/data";
+import { useDispatch } from "react-redux";
+import { setSelectedNumber } from "@/slices/selectedNumberSlice";
 
 const NumericKeypad = () => {
-
-  const onClick = (cell: number) => {
-    console.log(cell)
-  }
+  const dispatch = useDispatch();
+  const handleOnClick = (num: number) => {
+    dispatch(setSelectedNumber(num));
+  };
 
   return (
     <>
@@ -18,7 +20,7 @@ const NumericKeypad = () => {
                 <button
                   key={colIndex}
                   className="w-full h-full text-center text-4xl text-blue-600 hover:text-blue-800 font-medium border rounded-sm border-blue-600"
-                  onClick={() => onClick(cell)}
+                  onClick={() => handleOnClick(cell)}
                 >{cell}</button>
               ))}
             </React.Fragment>

@@ -1,6 +1,6 @@
 'use client'
 import PlayerAlias from '@/components/ticTacToe/PlayerAlias';
-import GameBoard from './../../../components/ticTacToe/GameBoard';
+import GameBoard from '../../../components/ticTacToe/GameBoard';
 import Log from '@/components/ticTacToe/Log';
 import { useState } from 'react';
 import { Turn } from '@/common/ticTacToe/interfaces';
