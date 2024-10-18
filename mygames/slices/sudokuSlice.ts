@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '@/store/store';
 
 type CellValue = number | null;
 type BoardState = CellValue[][];
@@ -9,13 +10,13 @@ interface SudokuState {
 
 const initialState: SudokuState = {
   board: [
-    [2, null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null, null],
-    [2, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, 4, null, null],
-    [null, null, null, null, null, null, null, 6, null],
-    [2, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null, null],
   ],
@@ -29,12 +30,13 @@ const sudokuSlice = createSlice({
       const { row, col, value } = action.payload;
       state.board[row][col] = value;
     },
-    resetBoard: (state, action: PayloadAction<BoardState>) => {
-      state.board = action.payload;
+    resetCell: (state, action: PayloadAction<{ row: number; col: number}>) => {
+      const { row, col} = action.payload;
+      state.board[row][col] = null;
     },
   },
 });
 
-export const { updateCell, resetBoard } = sudokuSlice.actions;
-
+export const { updateCell, resetCell } = sudokuSlice.actions;
+export const selectBoard = (state: RootState) => state.sudoku.board;
 export default sudokuSlice.reducer;
