@@ -6,7 +6,7 @@ const GamesPage = () => {
 
   return (
     <>
-      <header className="flex flex-col gap-12 my-10 mx-auto w-[90%] max-w-[75rem] text-blue-800 serif text-3xl font-bold font-family: Montserrat, serif">
+      <header className="flex flex-col gap-8 my-4 mx-auto w-[90%] max-w-[75rem] text-blue-800 serif text-3xl font-bold font-family: Montserrat, serif">
         <h1 className="uppercase">
           Awesome games, created{'     '}
           <span className="text-blue-900 lowercase">for you</span>
