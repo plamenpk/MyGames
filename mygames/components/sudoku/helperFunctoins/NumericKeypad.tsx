@@ -3,7 +3,6 @@ import React from "react";
 import { numericKeypad } from "@/common/sudoku/data";
 import { useDispatch } from "react-redux";
 import { setSelectedNumber } from "@/slices/selectedNumberSlice";
-import { updateCell } from "@/slices/sudokuSlice";
 
 const NumericKeypad = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const NumericKeypad = () => {
               {row.map((cell, colIndex) => (
                 <button
                   key={colIndex}
-                  className="w-full h-full text-center text-4xl text-blue-600 hover:text-blue-800 hover:bg-blue-100 font-medium border rounded-sm border-blue-600"
+                  className="w-full h-full text-center text-4xl text-blue-600 hover:text-blue-800 hover:bg-blue-100 font-medium border rounded border-blue-600"
                   onClick={() => handleOnClick(cell)}
                 >{cell}</button>
               ))}
