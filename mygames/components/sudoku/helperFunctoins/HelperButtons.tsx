@@ -13,9 +13,8 @@ const HelperButtons = ({ children }: ButtonProps) => {
   return (
     <>
       <button
-        className=" text-blue-500 text-xl hover:text-blue-800 "
+        className="border rounded border-blue-600 hover:bg-blue-100 text-blue-500 hover:text-blue-800"
         onClick={onClick}>{children}
-        {/* <ArrowLeftCircleIcon className="text-blue-500" /> */}
       </button>
     </>
   )
