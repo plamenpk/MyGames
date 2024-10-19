@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
+import { sudokuTemplate } from '@/common/sudoku/data';
 
 type CellValue = number | null;
 type BoardState = CellValue[][];
@@ -9,17 +10,7 @@ interface SudokuState {
 }
 
 const initialState: SudokuState = {
-  board: [
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
-  ],
+  board: sudokuTemplate
 };
 
 const sudokuSlice = createSlice({
@@ -30,8 +21,8 @@ const sudokuSlice = createSlice({
       const { row, col, value } = action.payload;
       state.board[row][col] = value;
     },
-    resetCell: (state, action: PayloadAction<{ row: number; col: number}>) => {
-      const { row, col} = action.payload;
+    resetCell: (state, action: PayloadAction<{ row: number; col: number }>) => {
+      const { row, col } = action.payload;
       state.board[row][col] = null;
     },
   },
