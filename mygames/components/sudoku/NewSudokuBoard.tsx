@@ -24,7 +24,7 @@ const NewSudokuBoard: FC = () => {
       });
     }
   };
-  
+
   const handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.select();
   };
@@ -64,26 +64,28 @@ const NewSudokuBoard: FC = () => {
 
   return (
     <form>
-      <div id='container' className="grid grid-cols-3 m-0 p-0">
-        <div className="col-span-2 flex justify-center items-center m-0 p-0">
-          <div className="grid grid-cols-9 gap-1 border-4 border-blue-800 rounded-sm">
-            {gameBoard.map((row, rowIndex) => (
-              <React.Fragment key={rowIndex}>
-                {row.map((cell, colIndex) => (
-                  <input
-                    key={colIndex}
-                    className={`w-12 h-12 text-center text-4xl font-medium rounded-sm border border-blue-800 ${colIndex === 2 || colIndex === 5 ? 'border-r-4' : ''} ${rowIndex === 2 || rowIndex === 5 ? 'border-b-4' : ''}`}
-                    value={cell !== null ? cell.toString() : ''}
-                    maxLength={1}
-                    onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
-                    onFocus={handleOnFocus}
-                  />
-                ))}
-              </React.Fragment>
-            ))}
-          </div>
+      <div id='SudokuBoard' className="flex justify-between">
+        <div className="grid grid-cols-9 gap-0">
+          {gameBoard.map((row, rowIndex) => (
+            <React.Fragment key={rowIndex}>
+              {row.map((cell, colIndex) => (
+                <input
+                  key={colIndex}
+                  className={`w-12 h-12 text-center text-4xl font-medium text-blue-700 border-blue-600 rounded
+                  ${colIndex === 2 || colIndex === 5 ? 'border-r-2 ' : 'border-r'} 
+                  ${rowIndex === 2 || rowIndex === 5 ? 'border-b-2' : 'border-b'}
+                  ${colIndex === 0 && 'border-l'}
+                  ${rowIndex === 0 && 'border-t'}`}
+                  value={cell !== null ? cell.toString() : ''}
+                  maxLength={1}
+                  onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
+                  onFocus={handleOnFocus}
+                />
+              ))}
+            </React.Fragment>
+          ))}
         </div>
-        <div className="col-span-1 mb-4">
+        <div className="">
           {boardSaved ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Board saved successfully</div>
             : savingBoard ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Saving board</div>
               : <button
@@ -91,8 +93,9 @@ const NewSudokuBoard: FC = () => {
                 onClick={saveNewGameBoard}
               >SAVE</button>}
         </div>
-
       </div>
+
+
     </form >
   );
 }
