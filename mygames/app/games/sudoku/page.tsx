@@ -20,7 +20,7 @@ const Sudoku = () => {
         <div className="lg:col-span-2">
           <SudokuGame></SudokuGame>
         </div>
-        <div className="h-full min-h-screen flex flex-col">
+        <div className="flex flex-col">
           <div className="grid grid-cols-4 gap-0 border rounded border-blue-600">
             <HelperButtons><ArrowUturnLeftIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100 border-r border-blue-600" /></HelperButtons>
             <HelperButtons><ArrowUturnRightIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100 border-r border-blue-600" /></HelperButtons>
