@@ -7,12 +7,10 @@ import { selectValue, resetSelectedNumber } from '@/slices/selectedNumberSlice';
 import { selectBoard, updateCell, resetCell } from '@/slices/sudokuSlice';
 
 
-const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
-  // const [gameBoard, setGameBoard] = useState(board);
-  const [selectedCell, setSelectedCell] = useState<number[]>([]);
-  const [row, col] = selectedCell;
-  const dispatch = useDispatch();
+const SudokuBoard: FC = () => {
 
+  const [selectedCell, setSelectedCell] = useState<number[]>([]);
+  const dispatch = useDispatch();
   const selectedNumber = useSelector(selectValue);
   const gameBoard = useSelector(selectBoard);
 
@@ -23,7 +21,6 @@ const SudokuBoard: FC<SudokuBoardProps> = ({ board }) => {
 
   const handleOnClick = (rowIndex: number, colIndex: number) => {
     dispatch(resetSelectedNumber());
-    //dispatch(resetCell({ row: rowIndex, col: colIndex }))
     setSelectedCell([rowIndex, colIndex]);
   }
 
