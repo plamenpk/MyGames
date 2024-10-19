@@ -39,14 +39,14 @@ const SudokuBoard: FC = () => {
   return (
     <>
       <div id='SudokuBoard' className="flex justify-start">
-        <div className="grid grid-cols-9 gap-0  border-2 border-blue-800 rounded-sm">
+        <div className="grid grid-cols-9 gap-0 border rounded border-blue-600">
           {gameBoard.map((row, rowIndex) => (
             <React.Fragment key={rowIndex}>
               {row.map((cell, colIndex) => (
                 <input
                   key={colIndex}
-                  className={`w-12 h-12 text-center text-4xl font-medium rounded-sm border border-blue-800 ${colIndex === 2 || colIndex === 5 ? 'border-r-2 ' : ''
-                    } ${rowIndex === 2 || rowIndex === 5 ? 'border-b-2' : ''}`}
+                  className={`w-12 h-12 text-center text-4xl font-medium text-blue-600 border-blue-600 ${colIndex === 2 || colIndex === 5 ? 'border-r-2 ' : 'border-r'
+                    } ${rowIndex === 2 || rowIndex === 5 ? 'border-b-2' : 'border-b'}`}
                   value={cell !== null ? cell.toString() : ''}
                   maxLength={1}
                   onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
