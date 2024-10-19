@@ -13,7 +13,7 @@ const HelperButtons = ({ children }: ButtonProps) => {
   return (
     <>
       <button
-        className=" rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
+        className=" text-blue-500 text-xl hover:text-blue-800 "
         onClick={onClick}>{children}
         {/* <ArrowLeftCircleIcon className="text-blue-500" /> */}
       </button>
