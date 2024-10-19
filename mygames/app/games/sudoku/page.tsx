@@ -29,11 +29,11 @@ const Sudoku = () => {
           <SudokuGame></SudokuGame>
         </div>
         <div className="h-full min-h-screen flex flex-col">
-          <div className="grid grid-cols-4 gap-1">
-            <HelperButtons><ArrowUturnLeftIcon className="text-blue-500" /></HelperButtons>
-            <HelperButtons><ArrowUturnRightIcon className="text-blue-500" /></HelperButtons>
-            <HelperButtons><XMarkIcon className="text-blue-500" /></HelperButtons>
-            <HelperButtons><ArrowUturnLeftIcon className="text-blue-500" /></HelperButtons>
+          <div className="grid grid-cols-4 gap-0 border rounded border-blue-600">
+            <HelperButtons><ArrowUturnLeftIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100 border-r border-blue-600" /></HelperButtons>
+            <HelperButtons><ArrowUturnRightIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100 border-r border-blue-600" /></HelperButtons>
+            <HelperButtons><XMarkIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100 border-r border-blue-600" /></HelperButtons>
+            <HelperButtons><ArrowUturnLeftIcon className="text-blue-500 hover:text-blue-800 hover:bg-blue-100" /></HelperButtons>
           </div>
           <NumericKeypad></NumericKeypad>
           <NewGame></NewGame>
