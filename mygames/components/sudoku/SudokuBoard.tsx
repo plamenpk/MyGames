@@ -1,11 +1,9 @@
 'use client'
 import React, { FC, useEffect, useState } from 'react';
-import { SudokuBoardProps } from '@/common/sudoku/interfaces';
 import { isBoardValid } from '@/common/sudoku/helpers';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectValue, resetSelectedNumber } from '@/slices/selectedNumberSlice';
 import { selectBoard, updateCell, resetCell } from '@/slices/sudokuSlice';
-
 
 const SudokuBoard: FC = () => {
 
