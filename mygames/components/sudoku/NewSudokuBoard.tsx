@@ -4,6 +4,7 @@ import { SudokuBoardType } from "@/common/sudoku/interfaces";
 import React, { FC, useState } from "react"
 import { useSelector } from "react-redux";
 import { selectValue } from "@/slices/userStateSlice";
+import SudokuGrid from "./SudokuGrid";
 
 
 const NewSudokuBoard: FC = () => {
@@ -24,10 +25,6 @@ const NewSudokuBoard: FC = () => {
       });
     }
   };
-
-  // const handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-  //   e.target.select();
-  // };
 
   const saveNewGameBoard = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -63,28 +60,12 @@ const NewSudokuBoard: FC = () => {
   };
 
   return (
-    <form>
-      <div id='SudokuBoard' className="flex justify-between">
-        <div className="grid grid-cols-9 gap-0">
-          {gameBoard.map((row, rowIndex) => (
-            <React.Fragment key={rowIndex}>
-              {row.map((cell, colIndex) => (
-                <input
-                  key={colIndex}
-                  className={`w-12 h-12 text-center text-4xl font-medium text-blue-700 border-blue-600 rounded
-                  ${colIndex === 2 || colIndex === 5 ? 'border-r-2 ' : 'border-r'} 
-                  ${rowIndex === 2 || rowIndex === 5 ? 'border-b-2' : 'border-b'}
-                  ${colIndex === 0 && 'border-l'}
-                  ${rowIndex === 0 && 'border-t'}`}
-                  value={cell !== null ? cell.toString() : ''}
-                  maxLength={1}
-                  onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
-                  // onFocus={handleOnFocus}
-                />
-              ))}
-            </React.Fragment>
-          ))}
-        </div>
+    <>
+      <div className="flex justify-between">
+        <SudokuGrid
+          gameBoard={gameBoard}
+          handleInputChange={handleInputChange}
+        ></SudokuGrid>
         <div className="">
           {boardSaved ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Board saved successfully</div>
             : savingBoard ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Saving board</div>
@@ -94,9 +75,7 @@ const NewSudokuBoard: FC = () => {
               >SAVE</button>}
         </div>
       </div>
-
-
-    </form >
+    </>
   );
 }
 
