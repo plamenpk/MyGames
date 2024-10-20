@@ -3,7 +3,7 @@ import { RootState } from '@/store/store';
 import { sudokuTemplate } from '@/common/sudoku/data';
 
 type CellValue = number | null;
-type BoardState = CellValue[][];
+export type BoardState = CellValue[][];
 
 interface SudokuState {
   board: BoardState;
@@ -25,9 +25,12 @@ const sudokuSlice = createSlice({
       const { row, col } = action.payload;
       state.board[row][col] = null;
     },
+    updateBoard: (state, action: PayloadAction<CellValue[][]>) => {
+      state.board = action.payload;
+    }
   },
 });
 
-export const { updateCell, resetCell } = sudokuSlice.actions;
+export const { updateCell, resetCell, updateBoard } = sudokuSlice.actions;
 export const selectBoard = (state: RootState) => state.sudoku.board;
 export default sudokuSlice.reducer;
