@@ -8,4 +8,4 @@ export interface SudokuBoardProps {
 }
 
 type SudokuCell = number | null;
-export type NewSudokuBoardType = SudokuCell[][];
+export type SudokuBoardType = SudokuCell[][];
