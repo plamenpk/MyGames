@@ -1,13 +1,13 @@
 'use client';
 import { newSudokuBoard } from "@/common/sudoku/data"
-import { NewSudokuBoardType } from "@/common/sudoku/interfaces";
+import { SudokuBoardType } from "@/common/sudoku/interfaces";
 import React, { FC, useState } from "react"
 import { useSelector } from "react-redux";
 import { selectValue } from "@/slices/userStateSlice";
 
 
 const NewSudokuBoard: FC = () => {
-  const [gameBoard, setGameBoard] = useState<NewSudokuBoardType>(newSudokuBoard);
+  const [gameBoard, setGameBoard] = useState<SudokuBoardType>(newSudokuBoard);
   const [boardSaved, setBoardSaved] = useState(false);
   const [savingBoard, setSavingBoard] = useState(false);
   const username = useSelector(selectValue);
@@ -25,9 +25,9 @@ const NewSudokuBoard: FC = () => {
     }
   };
 
-  const handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.target.select();
-  };
+  // const handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  //   e.target.select();
+  // };
 
   const saveNewGameBoard = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -79,7 +79,7 @@ const NewSudokuBoard: FC = () => {
                   value={cell !== null ? cell.toString() : ''}
                   maxLength={1}
                   onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
-                  onFocus={handleOnFocus}
+                  // onFocus={handleOnFocus}
                 />
               ))}
             </React.Fragment>
