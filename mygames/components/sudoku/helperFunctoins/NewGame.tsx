@@ -1,14 +1,35 @@
 'use client'
 
+import { NewSudokuBoard } from "@/models/sudokuBoard";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { handleNewGame } from "@/common/sudoku/helperFunctions/handleNewGame";
+
 const NewGame = () => {
-  const onClick = () => {
-    console.log('new game')
-  }
+  const [boards, setBoards] = useState<(number | null)[][][] | undefined>([]);
+  const dispatch = useDispatch();
+
+  const fetchBoards = async () => {
+    try {
+      const response = await fetch('/api/newGame', { method: 'POST' });
+      const data: NewSudokuBoard[] = await response.json();
+      const arrOfBoards = data.map((obj: NewSudokuBoard) => obj.board.board);
+      setBoards(arrOfBoards);
+    } catch (error) {
+      console.error('Failed to fetch boards', error);
+      console.log(error)
+    }
+  };
+
+  useEffect(() => {
+    fetchBoards();
+  }, []);
+
   return (
     <>
-      <button 
-      className="mt-2 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800 hover:bg-blue-100 w-full max-w-md"
-      onClick={onClick}>New Game</button>
+      <button
+        className="mt-2 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800 hover:bg-blue-100 w-full max-w-md"
+        onClick={() => handleNewGame(boards!, dispatch)}>New Game</button>
     </>
   )
 };
