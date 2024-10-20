@@ -3,8 +3,10 @@ export interface SudokuPageProp {
     sudokuSlug: string
   }
 }
-export interface SudokuBoardProps {
-  board: (number | null)[][];
+export interface SudokuGridProps {
+  gameBoard: SudokuBoardType;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => void;
+  handleOnClick?: (rowIndex: number, colIndex: number) => void;
 }
 
 type SudokuCell = number | null;
