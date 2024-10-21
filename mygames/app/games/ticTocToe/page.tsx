@@ -10,32 +10,16 @@ import GameOver from '@/components/ticTacToe/GameOver';
 import { deriveGameBoard } from './../../../common/ticTacToe/helpers';
 
 const TicTacToe = () => {
-  //const [activePlayer, setActivePlayer] = useState('X');
   const [gameTurns, setGameTurns] = useState<Turn[]>([]);
   const [players, setPlayers] = useState(PLAYERS)
 
   const activePlayer = deriveActivePlayer(gameTurns);
-
-  // let gameBoard = [...initialGameBoard.map(arr => [...arr])];
-
-  // for (const turn of gameTurns) {
-  //   const { square, player } = turn;
-  //   const { row, col } = square;
-  //   gameBoard[row][col] = player;
-  // }
   const gameBoard = deriveGameBoard(gameTurns);
   const winner = deriveWinner(gameBoard, players);
 
   const handleSelectSquare = (rowIndex: number, colIndex: number) => {
 
-    // setActivePlayer(currentPlayer => currentPlayer === 'X' ? 'O' : 'X');
-
     setGameTurns(prevTurns => {
-      // let currentPlayer = 'X';
-
-      // if (prevTurns.length > 0 && prevTurns[0].player === 'X') {
-      //   currentPlayer = 'O'
-      // }
       const currentPlayer = deriveActivePlayer(prevTurns);
       const updatedTurns = [
         {
@@ -64,7 +48,7 @@ const TicTacToe = () => {
     }
     )
   }
-
+  console.log(gameTurns)
   return (
     <main>
       <div className="max-w-2xl mx-auto my-10 p-8 rounded-lg bg-white shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
