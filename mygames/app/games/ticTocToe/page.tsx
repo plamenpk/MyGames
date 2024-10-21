@@ -4,10 +4,9 @@ import GameBoard from '../../../components/ticTacToe/GameBoard';
 import Log from '@/components/ticTacToe/Log';
 import { useState } from 'react';
 import { Turn } from '@/common/ticTacToe/interfaces';
-import { deriveActivePlayer, deriveWinner } from '@/common/ticTacToe/helpers';
-import { PLAYERS } from '@/common/ticTacToe/constants';
+import { deriveActivePlayer, deriveWinner, deriveGameBoard } from '@/common/ticTacToe/helpers';
+import { PLAYER_SYMBOL, PLAYERS } from '@/common/ticTacToe/constants';
 import GameOver from '@/components/ticTacToe/GameOver';
-import { deriveGameBoard } from './../../../common/ticTacToe/helpers';
 
 const TicTacToe = () => {
   const [gameTurns, setGameTurns] = useState<Turn[]>([]);
@@ -48,22 +47,22 @@ const TicTacToe = () => {
     }
     )
   }
-  console.log(gameTurns)
+  
   return (
     <main>
       <div className="max-w-2xl mx-auto my-10 p-8 rounded-lg bg-white shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
         <ol className="flex justify-center items-center gap-x-32">
           <PlayerAlias
             initialName={PLAYERS.X}
-            symbol="X"
-            isActive={activePlayer === 'X'}
+            symbol={PLAYER_SYMBOL.X}
+            isActive={activePlayer === PLAYER_SYMBOL.X}
             onChangeAlias={handlePlayerAlias}
           >
           </PlayerAlias>
           <PlayerAlias
             initialName={PLAYERS.O}
-            symbol="O"
-            isActive={activePlayer === 'O'}
+            symbol={PLAYER_SYMBOL.O}
+            isActive={activePlayer === PLAYER_SYMBOL.X}
             onChangeAlias={handlePlayerAlias}
           >
           </PlayerAlias>
