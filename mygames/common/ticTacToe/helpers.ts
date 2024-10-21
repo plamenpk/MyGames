@@ -1,6 +1,6 @@
 import { WINNING_COMBINATIONS, INITIAL_GAME_BOARD } from "./constants";
 import { GameBoardMatrixProps, PlayerSymbol, PlayersProps, Turn } from "./interfaces";
-
+import { Dispatch, SetStateAction } from "react";
 
 export const deriveActivePlayer = (gameTurns: Turn[]): string => {
   let currentPlayer = 'X';
@@ -36,4 +36,16 @@ export const deriveGameBoard = (gameTurns: Turn[]) => {
   }
 
   return gameBoard;
+}
+
+export const onRestart = (setGameTurns: Dispatch<SetStateAction<Turn[]>>) => setGameTurns([]);
+
+export const handlePlayerAlias = (symbol: string, alias: string, setPlayers: Dispatch<SetStateAction<PlayersProps>>) => {
+  setPlayers(prevPlayer => {
+    return {
+      ...prevPlayer,
+      [symbol]: alias
+    }
+  }
+  )
 }
