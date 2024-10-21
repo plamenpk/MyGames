@@ -10,6 +10,10 @@ export const PLAYERS = {
   O: 'Player 2'
 }
 
+export const PLAYER_SYMBOL = {
+  X: 'X',
+  O: 'O'
+}
 export const WINNING_COMBINATIONS = [
   [
     { row: 0, column: 0 },
