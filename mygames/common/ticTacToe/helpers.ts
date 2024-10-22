@@ -2,8 +2,8 @@ import { WINNING_COMBINATIONS, INITIAL_GAME_BOARD } from "./constants";
 import { GameBoardMatrixProps, PlayerSymbol, PlayersProps, Turn } from "./interfaces";
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-export const deriveActivePlayer = (gameTurns: Turn[]): string => {
-  let currentPlayer = 'X';
+export const deriveActivePlayer = (gameTurns: Turn[]): 'X' | 'O' => {
+  let currentPlayer: 'X' | 'O' = 'X';
 
   if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
     currentPlayer = 'O'
