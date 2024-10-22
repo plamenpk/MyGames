@@ -22,10 +22,11 @@ export interface PlayersProps {
   O: string
 }
 export type PlayerSymbol = 'X' | 'O';
+
+
 export interface PlayerAliasProps {
   initialName: string;
   symbol: string;
-  isActive: boolean;
   onChangeAlias: (symbol: string, alias: string) => void
 }
 export interface GameOverProps {
