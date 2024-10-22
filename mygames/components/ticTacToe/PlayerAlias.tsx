@@ -31,14 +31,14 @@ const PlayerAlias: React.FC<PlayerAliasProps> = ({ initialName, symbol, onChange
             className="w-full p-2 text-base text-blue-500 bg-transparent border border-blue-500 rounded focus:outline-none focus:border-blue-500"
           />
         ) : (
-          <span onClick={handleOnInputClick(setIsEditing, setPlayerAlias)} className="h-full flex items-center">
+          <span onClick={handleOnInputClick(setIsEditing, setPlayerAlias)} className="p-2 border border-white flex items-center">
             {/* Show alias or fallback to symbol if alias not set */}
             {playerAlias || symbol}
           </span>
         )}
       </span>
       <span className="ml-4 text-base text-blue-500">{symbol}</span>
-      <button onClick={handleEdit} className=" text-blue-500 hover:text-blue-800">
+      <button onClick={handleEdit} className="text-blue-500 hover:text-blue-800 min-w-[50px]">
         {isEditing ? 'Save' : 'Edit'}
       </button>
     </li>
