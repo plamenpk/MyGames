@@ -1,6 +1,6 @@
 import { WINNING_COMBINATIONS, INITIAL_GAME_BOARD } from "./constants";
 import { GameBoardMatrixProps, PlayerSymbol, PlayersProps, Turn } from "./interfaces";
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 export const deriveActivePlayer = (gameTurns: Turn[]): string => {
   let currentPlayer = 'X';
@@ -49,3 +49,17 @@ export const handlePlayerAlias = (symbol: string, alias: string, setPlayers: Dis
   }
   )
 }
+
+export const handleOnInputClick = (
+  setIsEditing: Dispatch<SetStateAction<boolean>>,
+  setPlayerAlias: Dispatch<SetStateAction<string>>
+) => () => {
+  setIsEditing(true);
+  setPlayerAlias('');
+}
+
+export const handleChangeAlias = (
+  setPlayerAlias: Dispatch<SetStateAction<string>>
+) => (e: ChangeEvent<HTMLInputElement>) => {
+  setPlayerAlias(e.target.value);
+};
