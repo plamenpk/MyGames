@@ -13,7 +13,7 @@ export const PLAYERS = {
 export const PLAYER_SYMBOL = {
   X: 'X',
   O: 'O'
-}
+} as const;
 export const WINNING_COMBINATIONS = [
   [
     { row: 0, column: 0 },
