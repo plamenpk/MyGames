@@ -11,12 +11,7 @@ import GameOver from '@/components/ticTacToe/GameOver';
 const TicTacToe = () => {
   const [gameTurns, setGameTurns] = useState<Turn[]>([]);
   const [players, setPlayers] = useState(PLAYERS);
-  // const [alias, setAlias]= useState({
-  //   X: '',
-  //   Y: ''
-  // });
 
-  const activePlayer = deriveActivePlayer(gameTurns);
   const gameBoard = deriveGameBoard(gameTurns);
   const winner = deriveWinner(gameBoard, players);
 
@@ -43,20 +38,15 @@ const TicTacToe = () => {
       <div className="max-w-2xl mx-auto my-10 p-8 rounded-lg bg-white shadow-[0_0_20px_rgba(0,0,0,0.5)] relative">
         <ol className="flex justify-center items-center gap-x-32">
           <PlayerAlias
-            initialName={PLAYERS.X}
+            initialName={players[PLAYER_SYMBOL.X]}
             symbol={PLAYER_SYMBOL.X}
-            isActive={activePlayer === PLAYER_SYMBOL.X}
-            onChangeAlias={(alias) => handlePlayerAlias(PLAYER_SYMBOL.X, alias, setPlayers)}
-          >
-          </PlayerAlias>
+            onChangeAlias={(symbol, alias) => handlePlayerAlias(symbol, alias, setPlayers)}
+          />
           <PlayerAlias
-            initialName={PLAYERS.O}
+            initialName={players[PLAYER_SYMBOL.O]}
             symbol={PLAYER_SYMBOL.O}
-            // alias={alias}
-            isActive={activePlayer === PLAYER_SYMBOL.X}
-            onChangeAlias={(alias) => handlePlayerAlias(PLAYER_SYMBOL.O, alias, setPlayers)}
-          >
-          </PlayerAlias>
+            onChangeAlias={(symbol, alias) => handlePlayerAlias(symbol, alias, setPlayers)}
+          />
         </ol>
         {(winner || hasDraw) && <GameOver winner={winner} onRestart={() => onRestart(setGameTurns)} />}
         <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
