@@ -38,7 +38,7 @@ export const deriveGameBoard = (gameTurns: Turn[]) => {
   return gameBoard;
 }
 
-export const onRestart = (setGameTurns: Dispatch<SetStateAction<Turn[]>>) => setGameTurns([]);
+export const onRestart = (setGameTurns: Dispatch<SetStateAction<Turn[]>>) => () => setGameTurns([]);
 
 export const handlePlayerAlias = (symbol: string, alias: string, setPlayers: Dispatch<SetStateAction<PlayersProps>>) => {
   setPlayers(prevPlayer => {

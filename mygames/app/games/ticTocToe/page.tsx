@@ -48,7 +48,7 @@ const TicTacToe = () => {
             onChangeAlias={(symbol, alias) => handlePlayerAlias(symbol, alias, setPlayers)}
           />
         </ol>
-        {(winner || hasDraw) && <GameOver winner={winner} onRestart={() => onRestart(setGameTurns)} />}
+        {(winner || hasDraw) && <GameOver winner={winner} onRestart={onRestart(setGameTurns)} />}
         <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       </div>
       <Log turns={gameTurns} players={players} />
