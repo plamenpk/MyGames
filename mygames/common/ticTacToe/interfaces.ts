@@ -7,7 +7,7 @@ interface Square {
 }
 export interface Turn {
   square: Square;
-  player: string
+  player: 'X' | 'O'
 }
 export interface GameBoardProps {
   onSelectSquare: (rowIndex: number, colIndex: number) => void;
@@ -16,6 +16,7 @@ export interface GameBoardProps {
 
 export interface LogProps {
   turns: Turn[];
+  players: PlayersProps
 }
 export interface PlayersProps {
   X: string;

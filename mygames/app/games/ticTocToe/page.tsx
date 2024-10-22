@@ -18,7 +18,7 @@ const TicTacToe = () => {
   const handleSelectSquare = (rowIndex: number, colIndex: number) => {
 
     setGameTurns(prevTurns => {
-      const currentPlayer = deriveActivePlayer(prevTurns);
+      const currentPlayer: 'X' | 'O' = deriveActivePlayer(prevTurns);
       const updatedTurns = [
         {
           square: { row: rowIndex, col: colIndex },
@@ -51,7 +51,7 @@ const TicTacToe = () => {
         {(winner || hasDraw) && <GameOver winner={winner} onRestart={() => onRestart(setGameTurns)} />}
         <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       </div>
-      <Log turns={gameTurns} />
+      <Log turns={gameTurns} players={players} />
     </main>
   )
 }
