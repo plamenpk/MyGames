@@ -1,4 +1,4 @@
-import { SUDOKU_3, SUDOKU_3X3 } from "./constants";
+import { SUDOKU_3, SUDOKU_3X3 } from "../constants";
 
 export const isFilled = (board: (number | null)[][]) => {
 
@@ -58,7 +58,7 @@ const isSubGridsValid = (board: (number | null)[][]) => {
   return true;
 }
 
-export const isBoardValid = (board: (number | null)[][]) => {
+export const isBoardResolved = (board: (number | null)[][]) => {
 
   return (isFilled(board) && areRowsValid(board) && areColumnsValid(board) && isSubGridsValid(board));
 }

@@ -1,6 +1,6 @@
 'use client'
 import React, { FC, useEffect, useState } from 'react';
-import { isBoardValid } from '@/common/sudoku/helpers';
+import { isBoardResolved } from '@/common/sudoku/helperFunctions/isBoardResolved';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectValue, resetSelectedNumber } from '@/slices/selectedNumberSlice';
 import { selectBoard, updateCell, resetCell } from '@/slices/sudokuSlice';
@@ -35,7 +35,7 @@ const SudokuBoard: FC = () => {
     }
   }, [selectedNumber, selectedCell, dispatch]);
 
-  if (isBoardValid(gameBoard)) {
+  if (isBoardResolved(gameBoard)) {
     return <h6>GameOver</h6>
   }
 
