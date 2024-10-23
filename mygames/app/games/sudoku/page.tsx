@@ -2,8 +2,8 @@ import Link from "next/link";
 import SudokuGame from "./sudokuGame/page";
 import NumericKeypad from "@/components/sudoku/helperButtons/NumericKeypad";
 import NewGame from "@/components/sudoku/helperButtons/NewGame";
-import HelperButton from "@/components/sudoku/helperButtons/HelperButton";
-import { ArrowUturnLeftIcon, ArrowUturnRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import HelperButtons from "@/components/sudoku/helperButtons/HelperButtons";
+
 
 const Sudoku = () => {
 
@@ -18,16 +18,11 @@ const Sudoku = () => {
       </header>
       <main className="my-6 mx-auto w-[90%] lg:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div className="lg:col-span-2">
-          <SudokuGame></SudokuGame>
+          <SudokuGame/>
         </div>
         <div className="flex flex-col">
-          <div className="grid grid-cols-4 gap-0">
-            <HelperButton><ArrowUturnLeftIcon /></HelperButton>
-            <HelperButton><ArrowUturnRightIcon/></HelperButton>
-            <HelperButton><XMarkIcon /></HelperButton>
-            <HelperButton><ArrowUturnLeftIcon /></HelperButton>
-          </div>
-          <NumericKeypad></NumericKeypad>
+          <HelperButtons/>
+          <NumericKeypad/>
           <NewGame></NewGame>
         </div>
         <div className="bg-white border rounded">add-on</div>
