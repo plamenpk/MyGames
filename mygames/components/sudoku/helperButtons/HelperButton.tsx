@@ -6,7 +6,7 @@ type ButtonProps = {
   children: ReactNode;
 };
 
-const HelperButtons = ({ children }: ButtonProps) => {
+const HelperButton = ({ children }: ButtonProps) => {
   const onClick = () => {
     console.log();
   }
@@ -20,4 +20,4 @@ const HelperButtons = ({ children }: ButtonProps) => {
   )
 };
 
-export default HelperButtons;
+export default HelperButton;
