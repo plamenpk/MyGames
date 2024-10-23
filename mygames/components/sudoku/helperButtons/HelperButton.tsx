@@ -4,17 +4,16 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;
+  handleOnClick: () => void;
 };
 
-const HelperButton = ({ children }: ButtonProps) => {
-  const onClick = () => {
-    console.log();
-  }
+const HelperButton = ({ children, handleOnClick }: ButtonProps) => {
+
   return (
     <>
       <button
         className="border rounded border-blue-600 hover:bg-blue-100 text-blue-500 hover:text-blue-800"
-        onClick={onClick}>{children}
+        onClick={handleOnClick}>{children}
       </button>
     </>
   )
