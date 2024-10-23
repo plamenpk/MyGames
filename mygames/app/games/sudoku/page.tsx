@@ -1,8 +1,8 @@
 import Link from "next/link";
 import SudokuGame from "./sudokuGame/page";
-import NumericKeypad from "@/components/sudoku/helperFunctoins/NumericKeypad";
-import NewGame from "@/components/sudoku/helperFunctoins/NewGame";
-import HelperButtons from "@/components/sudoku/helperFunctoins/HelperButtons";
+import NumericKeypad from "@/components/sudoku/helperButtons/NumericKeypad";
+import NewGame from "@/components/sudoku/helperButtons/NewGame";
+import HelperButton from "@/components/sudoku/helperButtons/HelperButton";
 import { ArrowUturnLeftIcon, ArrowUturnRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Sudoku = () => {
@@ -22,10 +22,10 @@ const Sudoku = () => {
         </div>
         <div className="flex flex-col">
           <div className="grid grid-cols-4 gap-0">
-            <HelperButtons><ArrowUturnLeftIcon /></HelperButtons>
-            <HelperButtons><ArrowUturnRightIcon/></HelperButtons>
-            <HelperButtons><XMarkIcon /></HelperButtons>
-            <HelperButtons><ArrowUturnLeftIcon /></HelperButtons>
+            <HelperButton><ArrowUturnLeftIcon /></HelperButton>
+            <HelperButton><ArrowUturnRightIcon/></HelperButton>
+            <HelperButton><XMarkIcon /></HelperButton>
+            <HelperButton><ArrowUturnLeftIcon /></HelperButton>
           </div>
           <NumericKeypad></NumericKeypad>
           <NewGame></NewGame>
