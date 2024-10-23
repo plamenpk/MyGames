@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { isBoardResolved } from '@/common/sudoku/helperFunctions/isBoardResolved';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectValue, resetSelectedNumber } from '@/slices/selectedNumberSlice';
+import { selectValue, resetSelectedNumber, setSelectedNumber } from '@/slices/selectedNumberSlice';
 import { selectBoard, updateCell, resetCell } from '@/slices/sudokuSlice';
 import SudokuGrid from './SudokuGrid';
 
@@ -10,12 +10,12 @@ const SudokuBoard: FC = () => {
 
   const [selectedCell, setSelectedCell] = useState<number[]>([]);
   const dispatch = useDispatch();
-  const selectedNumber = useSelector(selectValue);
   const gameBoard = useSelector(selectBoard);
+  const selectedNumber = useSelector(selectValue);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
     const value = e.target.value;
-    
+
     if (value === '' || /^[1-9]$/.test(value)) {
       const numericValue = e.target.value === '' ? null : Number(e.target.value);
       dispatch(updateCell({ row, col, value: numericValue }));
@@ -23,7 +23,9 @@ const SudokuBoard: FC = () => {
   };
 
   const handleOnClick = (rowIndex: number, colIndex: number) => {
-    dispatch(resetSelectedNumber());
+    const num = gameBoard[rowIndex][colIndex];
+
+    dispatch(setSelectedNumber(num));
     setSelectedCell([rowIndex, colIndex]);
   }
 
