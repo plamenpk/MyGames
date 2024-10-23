@@ -27,9 +27,9 @@ const NewGame = () => {
 
   return (
     <>
-      <button
+      {boards && <button
         className="mt-2 border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800 hover:bg-blue-100 w-full max-w-md"
-        onClick={() => handleNewGame(boards!, dispatch)}>New Game</button>
+        onClick={() => handleNewGame(boards, dispatch)}>New Game</button>}
     </>
   )
 };
