@@ -62,10 +62,10 @@ const NewSudokuBoard: FC = () => {
   return (
     <>
       <div className="flex justify-between">
-        <SudokuGrid
+        {!boardSaved && <SudokuGrid
           gameBoard={gameBoard}
           handleInputChange={handleInputChange}
-        ></SudokuGrid>
+        ></SudokuGrid>}
         <div className="">
           {boardSaved ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Board saved successfully</div>
             : savingBoard ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Saving board</div>
