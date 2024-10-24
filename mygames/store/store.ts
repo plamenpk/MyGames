@@ -5,6 +5,7 @@ import counterReducer from '@/slices/counterSlice';
 import sudokuReducer from '@/slices/sudokuSlice';
 import userStateReducer from '@/slices/userStateSlice';
 import selectedNumberReducer from '@/slices/selectedNumberSlice';
+import selectedButtonReducer from '@/slices/selectedButtonSlice';
 
 const persistConfig = {
   key: "root",
@@ -18,7 +19,8 @@ export const store = configureStore({
     counter: counterReducer,
     sudoku: sudokuReducer,
     userState: persistedReducer,
-    selectedNumber: selectedNumberReducer
+    selectedNumber: selectedNumberReducer,
+    selectedButton: selectedButtonReducer
   },
 
   middleware: (getDefaultMiddleware) =>
