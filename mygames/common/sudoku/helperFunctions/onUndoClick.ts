@@ -6,7 +6,6 @@ export const useOnUndoClick = () => {
 
   const onUndoClick = () => {
     dispatch(setSelectedButton('undo'))
-    console.log('undo')
   };
   return { onUndoClick };
 }
