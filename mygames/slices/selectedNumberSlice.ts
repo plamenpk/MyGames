@@ -24,5 +24,5 @@ export const selectedNumberSlice = createSlice({
 });
 
 export const { setSelectedNumber, resetSelectedNumber } = selectedNumberSlice.actions;
-export const selectValue = (state: RootState) => state.selectedNumber.value;
+export const selectNumber = (state: RootState) => state.selectedNumber.value;
 export default selectedNumberSlice.reducer;
