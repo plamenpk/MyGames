@@ -28,34 +28,37 @@ const NewSudokuBoard: FC = () => {
 
   const saveNewGameBoard = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (username) {
+      try {
+        setSavingBoard(true);
+        const response = await fetch('/api/saveSudokuBoard', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            author: username,
+            board: gameBoard
+          }),
+        });
 
-    try {
-      setSavingBoard(true);
-      const response = await fetch('/api/saveSudokuBoard', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          author: username,
-          board: gameBoard
-        }),
-      });
-
-      if (response.ok) {
-        setBoardSaved(true);
-        setTimeout(() => {
-          setBoardSaved(false);
-        }, 2000);
-        setGameBoard(newSudokuBoard);
-        setSavingBoard(false);
-        console.log('Board saved successfully');
-      } else {
-        const errorData = await response.json();
-        console.error('Error saving board:', errorData);
+        if (response.ok) {
+          setBoardSaved(true);
+          setTimeout(() => {
+            setBoardSaved(false);
+          }, 2000);
+          setGameBoard(newSudokuBoard);
+          setSavingBoard(false);
+          console.log('Board saved successfully');
+        } else {
+          const errorData = await response.json();
+          console.error('Error saving board:', errorData);
+        }
+      } catch (error) {
+        console.error('Error saving board', error);
       }
-    } catch (error) {
-      console.error('Error saving board', error);
+    } else {
+      alert('Log in first')
     }
   };
 
