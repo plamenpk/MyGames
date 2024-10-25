@@ -22,7 +22,6 @@ const SudokuBoard: FC = () => {
 
     if (value === '' || /^[1-9]$/.test(value)) {
       const numericValue = value === '' ? null : Number(e.target.value);
-      // dispatch(updateCell({ row, col, value: numericValue }));
       dispatch(setSelectedNumber(numericValue));
     }
   };
@@ -31,22 +30,19 @@ const SudokuBoard: FC = () => {
     const num = gameBoard[rowIndex][colIndex];
 
     dispatch(setSelectedNumber(num));
-    setPreviousCell([selectedCell[0], selectedCell[1]]);
+    setPreviousCell([...selectedCell]);
     setSelectedCell([rowIndex, colIndex]);
   }
 
   useEffect(() => {
-    // Prevent update if undo is triggered
-    if (selectedButton === 'undo') {
-      return;
-    }
-
     const [row, col] = selectedCell;
+
     if (row !== undefined && col !== undefined) {
       dispatch(updateCell({ row, col, value: selectedNumber }));
 
       if (selectedCell[0] !== previousCell[0] || selectedCell[1] !== previousCell[1]) {
         const newBoardState = gameBoard.map(row => [...row]);
+
         setLog((prevLog) => {
           const lastLogBoard = prevLog[prevLog.length - 1];
           const boardHasChanged = JSON.stringify(lastLogBoard) !== JSON.stringify(newBoardState);
@@ -65,28 +61,26 @@ const SudokuBoard: FC = () => {
         });
       }
     }
-  }, [selectedNumber, selectedButton, selectedCell, previousCell, gameBoard, dispatch]);
+  }, [selectedNumber, selectedCell, previousCell, gameBoard, dispatch]);
 
   useEffect(() => {
-    if (log.length > 0 && selectedButton === 'undo') {
-      console.log(selectedButton, log.length);
+    if (log.length <= 1) dispatch(resetSelectedButton());
+    if (log.length > 1 && selectedButton === 'undo') {
       const previousBoardState = log[log.length - 2];
+
       setLog(prevLog => {
         const newLog = [...prevLog];
         const redo = newLog.pop();
         return newLog;
       });
-      // Dispatch an action to update the current board with the previous state
-      if (previousBoardState) {
-        dispatch(updateBoard(previousBoardState));
 
-        // Reset selectedNumber and selectedCell to prevent immediate update
-        dispatch(resetSelectedNumber());
+      if (previousBoardState) {  // Dispatch an action to update the current board with the previous state
+
+        dispatch(updateBoard(previousBoardState));
+        dispatch(resetSelectedNumber());  // Reset selectedNumber and selectedCell to prevent immediate update
         setSelectedCell([]);
         setPreviousCell([10, 10]);
-
-        // Reset the undo button state
-        dispatch(resetSelectedButton());
+        dispatch(resetSelectedButton());// Reset the undo button state
       }
     }
   }, [selectedButton, log, dispatch]);
@@ -94,8 +88,7 @@ const SudokuBoard: FC = () => {
   if (isBoardResolved(gameBoard)) {
     return <h6>GameOver</h6>
   }
-  console.log(log);
-  //console.log(true)
+
   return (
     <SudokuGrid
       gameBoard={gameBoard}
