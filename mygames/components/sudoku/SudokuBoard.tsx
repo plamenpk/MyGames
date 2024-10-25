@@ -6,16 +6,19 @@ import { selectNumber, resetSelectedNumber, setSelectedNumber } from '@/slices/s
 import { selectBoard, updateCell, updateBoard, BoardState } from '@/slices/sudokuSlice';
 import SudokuGrid from './SudokuGrid';
 import { selectButton, resetSelectedButton } from '@/slices/selectedButtonSlice';
+import { REDO, UNDO } from '@/common/sudoku/constants';
 
 const SudokuBoard: FC = () => {
 
   const [selectedCell, setSelectedCell] = useState<number[]>([]);
-  const [previousCell, setPreviousCell] = useState<number[]>([10, 10]);
+  const [previousCell, setPreviousCell] = useState<number[]>([]);
   const dispatch = useDispatch();
   const selectedNumber = useSelector(selectNumber);
   const selectedButton = useSelector(selectButton);
   const gameBoard = useSelector(selectBoard);
-  const [log, setLog] = useState<BoardState[]>([gameBoard]);
+  const [logUndo, setLogUndo] = useState<BoardState[]>([gameBoard]);
+  const [logRedo, setLogRedo] = useState<BoardState>([]);
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
     const value = e.target.value;
@@ -43,7 +46,7 @@ const SudokuBoard: FC = () => {
       if (selectedCell[0] !== previousCell[0] || selectedCell[1] !== previousCell[1]) {
         const newBoardState = gameBoard.map(row => [...row]);
 
-        setLog((prevLog) => {
+        setLogUndo((prevLog) => {
           const lastLogBoard = prevLog[prevLog.length - 1];
           const boardHasChanged = JSON.stringify(lastLogBoard) !== JSON.stringify(newBoardState);
 
@@ -54,23 +57,26 @@ const SudokuBoard: FC = () => {
           }
         });
       } else {
-        setLog(prevLog => {
+        setLogUndo(prevLog => {
           const newLog = [...prevLog];
           newLog[newLog.length - 1] = gameBoard.map(row => [...row]);
           return newLog;
         });
       }
     }
-  }, [selectedNumber, selectedCell, previousCell, gameBoard, dispatch]);
+  }, [selectedNumber, selectedCell, selectedButton, previousCell, gameBoard, dispatch]);
 
   useEffect(() => {
-    if (log.length <= 1) dispatch(resetSelectedButton());
-    if (log.length > 1 && selectedButton === 'undo') {
-      const previousBoardState = log[log.length - 2];
+    if (logUndo.length <= 1) dispatch(resetSelectedButton());
+    if (logUndo.length > 1 && selectedButton === UNDO) {
+      const previousBoardState = logUndo[logUndo.length - 2];
 
-      setLog(prevLog => {
+      setLogUndo(prevLog => {
         const newLog = [...prevLog];
         const redo = newLog.pop();
+        
+        if (redo) { setLogRedo(redo) }
+
         return newLog;
       });
 
@@ -79,16 +85,28 @@ const SudokuBoard: FC = () => {
         dispatch(updateBoard(previousBoardState));
         dispatch(resetSelectedNumber());  // Reset selectedNumber and selectedCell to prevent immediate update
         setSelectedCell([]);
-        setPreviousCell([10, 10]);
+        setPreviousCell([]);
         dispatch(resetSelectedButton());// Reset the undo button state
       }
     }
-  }, [selectedButton, log, dispatch]);
+  }, [selectedButton, logUndo, dispatch]);
 
+  useEffect(() => {
+    if (logRedo.length > 0 && selectedButton === REDO) {
+      
+      dispatch(updateBoard(logRedo));
+      setLogUndo((prevLog) => {
+        return [...prevLog, logRedo]
+      })
+      setLogRedo([]);
+      dispatch(resetSelectedButton());
+    }
+  }, [selectedButton, logRedo,dispatch])
+  
   if (isBoardResolved(gameBoard)) {
     return <h6>GameOver</h6>
   }
-
+  
   return (
     <SudokuGrid
       gameBoard={gameBoard}
