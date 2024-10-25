@@ -12,7 +12,7 @@ const HelperButton = ({ children, handleOnClick }: ButtonProps) => {
   return (
     <>
       <button
-        className="border rounded border-blue-600 hover:bg-blue-100 text-blue-500 hover:text-blue-800"
+        className="p-2 border rounded border-blue-600 hover:bg-blue-100 text-blue-500 hover:text-blue-800"
         onClick={handleOnClick}>{children}
       </button>
     </>
