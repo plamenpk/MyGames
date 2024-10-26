@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest,) => {
     const { author, board } = await req.json();
     await connectMongoDB();
     await SudokuBoard.create({ board: { author, board } });
-    // console.log({ author, board })
+    
     return NextResponse.json({ message: "New sudoku board saved." }, { status: 201 });
   } catch (error) {
     // console.error('Error details:', error);
