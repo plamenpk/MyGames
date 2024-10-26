@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
-import { SudokuBoardType } from "../interfaces";
+import { SudokuBoard } from "../interfaces";
 
-export const handleInputChange= (setGameBoard: Dispatch<SetStateAction<SudokuBoardType>>)=>{
+export const handleInputChange= (setGameBoard: Dispatch<SetStateAction<SudokuBoard>>)=>{
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number)=> {
     const value = e.target.value;

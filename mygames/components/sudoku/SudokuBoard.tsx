@@ -3,12 +3,13 @@ import React, { FC, useEffect, useState } from 'react';
 import { isBoardResolved } from '@/common/sudoku/helperFunctions/isBoardResolved';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectNumber, resetSelectedNumber, setSelectedNumber } from '@/slices/selectedNumberSlice';
-import { selectBoard, updateCell, updateBoard, BoardState } from '@/slices/sudokuSlice';
+import { selectBoard, updateCell, updateBoard } from '@/slices/sudokuSlice';
 import SudokuGrid from './SudokuGrid';
 import { selectButton, resetSelectedButton } from '@/slices/selectedButtonSlice';
 import { REDO, UNDO } from '@/common/sudoku/constants';
+import { SudokuBoard } from '@/common/sudoku/interfaces';
 
-const SudokuBoard: FC = () => {
+const SudokuGame: FC = () => {
 
   const [selectedCell, setSelectedCell] = useState<number[]>([]);
   const [previousCell, setPreviousCell] = useState<number[]>([]);
@@ -16,8 +17,8 @@ const SudokuBoard: FC = () => {
   const selectedNumber = useSelector(selectNumber);
   const selectedButton = useSelector(selectButton);
   const gameBoard = useSelector(selectBoard);
-  const [logUndo, setLogUndo] = useState<BoardState[]>([gameBoard]);
-  const [logRedo, setLogRedo] = useState<BoardState>([]);
+  const [logUndo, setLogUndo] = useState<SudokuBoard[]>([gameBoard]);
+  const [logRedo, setLogRedo] = useState<SudokuBoard>([]);
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
@@ -116,4 +117,4 @@ const SudokuBoard: FC = () => {
   )
 };
 
-export default SudokuBoard;
+export default SudokuGame;

@@ -1,6 +1,6 @@
 'use client';
 import { newSudokuBoard } from "@/common/sudoku/data"
-import { SudokuBoardType } from "@/common/sudoku/interfaces";
+import { SudokuBoard } from "@/common/sudoku/interfaces";
 import React, { FC, useState } from "react"
 import { useSelector } from "react-redux";
 import { selectValue } from "@/slices/userStateSlice";
@@ -8,7 +8,7 @@ import SudokuGrid from "./SudokuGrid";
 import { handleInputChange } from "@/common/sudoku/helperFunctions/handleInputChange";
 
 const NewSudokuBoard: FC = () => {
-  const [gameBoard, setGameBoard] = useState<SudokuBoardType>(newSudokuBoard);
+  const [gameBoard, setGameBoard] = useState<SudokuBoard>(newSudokuBoard);
   const [savingBoard, setSavingBoard] = useState(false);
   const username = useSelector(selectValue);
 

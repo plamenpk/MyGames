@@ -1,10 +1,11 @@
-import { BoardState, updateBoard } from "@/slices/sudokuSlice";
+import { updateBoard } from "@/slices/sudokuSlice";
 import { Dispatch } from "react";
+import { SudokuBoard } from "../interfaces";
 
-export const handleNewGame = (boards: (number | null)[][][], dispatch: Dispatch<any>) => {
+export const handleNewGame = (boards: SudokuBoard[], dispatch: Dispatch<any>) => {
   if (boards && boards.length > 0) {
     const randomIndex = Math.floor(Math.random() * boards.length);
-    const randomBoard: BoardState = boards[randomIndex];
+    const randomBoard: SudokuBoard = boards[randomIndex];
     dispatch(updateBoard(randomBoard));
   }
 }

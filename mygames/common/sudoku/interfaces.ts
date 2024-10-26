@@ -4,10 +4,10 @@ export interface SudokuPageProp {
   }
 }
 export interface SudokuGridProps {
-  gameBoard: SudokuBoardType;
+  gameBoard: SudokuBoard;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => void;
   handleOnClick?: (rowIndex: number, colIndex: number) => void;
 }
 
-type SudokuCell = number | null;
-export type SudokuBoardType = SudokuCell[][];
+export type SudokuCell = number | null;
+export type SudokuBoard = SudokuCell[][];
