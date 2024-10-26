@@ -12,7 +12,6 @@ const Home = () => {
           <div className="text-blue-900 text-lg">
             <h1 className="text-3xl font-bold font-family: Montserrat, serif uppercase">Next Level Games for</h1>
             <h1 className="text-3xl font-bold font-family: Montserrat, serif uppercase">Next Level Gamers</h1>
-
             <p className="py-8">Try & enjoy games with all over the world.</p>
           </div>
           <div className="text-lg flex gap-4">
@@ -28,14 +27,13 @@ const Home = () => {
             The goal of Sudoku is to fill the cells with numbers from 1 to 9. The numbers are placed in 9 squares, 3x3 each, thus, in each row, in each column and in each small square there are 9 cells. The same digit can be used only once in each separate column, each line and in each small square. The level of difficulty depends on how many digits are already indicated in the cells. If you open plenty of numbers - then you have very easy Sudoku.
           </p>
         </section>
-
         <section className="flex flex-col text-blue-900  text-lg max-w-3xl w-11/12 mx-auto my-8 text-center">
           <h2 className="text-2xl font-bold">Why NextLevel Games?</h2>
           <p>
-            The advantage of online games on Sudoku.com is that the game is always available and you can use various useful features. You can receive hints, correct or delete the entered data, take notes and stop the time needed to solve the puzzle. If you need to interrupt the game, you can always press a pause button.
+            The advantage of online games on MyNextLevelGames.com is that the game is always available and you can use various useful features. You can receive hints, correct or delete the entered data, take notes and stop the time needed to solve the puzzle. If you need to interrupt the game, you can always press a pause button.
           </p>
           <p>
-            NextLevel Games is a place to discover new games, and to connect
+            MyNextLevelGames is a place to discover new games, and to connect
             with other game lovers.
           </p>
         </section>

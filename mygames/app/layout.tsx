@@ -2,11 +2,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "./Providers";
 import { ReactNode } from "react";
-import MainHeader from "@/components/MainHeader";
 import NavBar from "@/components/NavBar";
 import { StoreProvider } from "@/store/StoreProvider";
 import ClientPersistGate from "@/store/ClientPersistGate";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
