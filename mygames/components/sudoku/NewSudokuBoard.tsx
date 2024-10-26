@@ -5,26 +5,12 @@ import React, { FC, useState } from "react"
 import { useSelector } from "react-redux";
 import { selectValue } from "@/slices/userStateSlice";
 import SudokuGrid from "./SudokuGrid";
-
+import { handleInputChange } from "@/common/sudoku/helperFunctions/handleInputChange";
 
 const NewSudokuBoard: FC = () => {
   const [gameBoard, setGameBoard] = useState<SudokuBoardType>(newSudokuBoard);
-  const [boardSaved, setBoardSaved] = useState(false);
   const [savingBoard, setSavingBoard] = useState(false);
   const username = useSelector(selectValue);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
-    const value = e.target.value;
-
-    if (value === '' || /^[1-9]$/.test(value)) {
-      const numericValue = value === '' ? null : Number(value);
-      setGameBoard(prevBoard => {
-        const newBoard = prevBoard.map((r) => [...r]);
-        newBoard[row][col] = numericValue;
-        return newBoard;
-      });
-    }
-  };
 
   const saveNewGameBoard = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -43,16 +29,14 @@ const NewSudokuBoard: FC = () => {
         });
 
         if (response.ok) {
-          setBoardSaved(true);
-          setTimeout(() => {
-            setBoardSaved(false);
-          }, 2000);
-          setGameBoard(newSudokuBoard);
           setSavingBoard(false);
+          alert('Board saved successfully');
+          setGameBoard(newSudokuBoard);
           console.log('Board saved successfully');
         } else {
           const errorData = await response.json();
           console.error('Error saving board:', errorData);
+          alert('Error saving board');
         }
       } catch (error) {
         console.error('Error saving board', error);
@@ -65,17 +49,16 @@ const NewSudokuBoard: FC = () => {
   return (
     <>
       <div className="flex justify-between">
-        {!boardSaved && <SudokuGrid
+        <SudokuGrid
           gameBoard={gameBoard}
-          handleInputChange={handleInputChange}
-        ></SudokuGrid>}
+          handleInputChange={handleInputChange(setGameBoard)}
+        ></SudokuGrid>
         <div className="">
-          {boardSaved ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Board saved successfully</div>
-            : savingBoard ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Saving board</div>
-              : <button
-                className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
-                onClick={saveNewGameBoard}
-              >SAVE</button>}
+          {savingBoard ? <div className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800">Saving board</div>
+            : <button
+              className="border rounded border-blue-600 text-blue-500 text-xl px-4 py-2 hover:text-blue-800"
+              onClick={saveNewGameBoard}
+            >SAVE</button>}
         </div>
       </div>
     </>
