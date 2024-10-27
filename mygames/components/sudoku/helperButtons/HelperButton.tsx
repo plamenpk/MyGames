@@ -2,12 +2,12 @@
 
 import { ReactNode } from "react";
 
-type ButtonProps = {
+type HelperButtonProps = {
   children: ReactNode;
   handleOnClick: () => void;
 };
 
-const HelperButton = ({ children, handleOnClick }: ButtonProps) => {
+const HelperButton = ({ children, handleOnClick }: HelperButtonProps) => {
 
   return (
     <>

@@ -2,12 +2,12 @@ import { useDispatch } from "react-redux";
 import { resetSelectedNumber } from "@/slices/selectedNumberSlice";
 
 
-export const useOnDeleteHelperButton = () => {
+export const useOnDeleteClick = () => {
   const dispatch = useDispatch();
 
-  const onDeleteHelperButton = () => {
+  const onDeleteClick = () => {
     
     dispatch(resetSelectedNumber());
   };
-  return { onDeleteHelperButton };
+  return { onDeleteClick };
 };
