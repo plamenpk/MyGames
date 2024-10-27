@@ -9,7 +9,7 @@ export const GAMES = [
   { id: 'id5', name: 'Tic Toc Toe', img: sudokuImg2 }
 ]
 
-export const newSudokuBoard = [
+export const NEW_SUDOKU_BOARD = [
   [null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null],
@@ -20,7 +20,7 @@ export const newSudokuBoard = [
   [null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null]
 ]
-export const sudokuTemplate = [
+export const SUDOKU_TEMPLATE = [
     [null, 8, null, 7, null, 9, null, null, 2],
     [null, 3, 4, null, 1, null, null, 9, null],
     [null, null, null, 3, null, 8, null, null, null],
@@ -32,4 +32,4 @@ export const sudokuTemplate = [
     [null, 9, null, 5, null, 4, null, null, 3],
 ];
 
-export const numericKeypad = [[1, 2, 3], [4, 5, 6], [7, 8, 9],];
+export const NUMERIC_KEYPAD = [[1, 2, 3], [4, 5, 6], [7, 8, 9],];

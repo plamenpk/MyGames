@@ -1,8 +1,8 @@
 import Link from "next/link";
-import SudokuGame from "@/components/sudoku/SudokuBoard";
 import NumericKeypad from "@/components/sudoku/helperButtons/NumericKeypad";
 import NewGame from "@/components/sudoku/helperButtons/NewGame";
 import HelperButtons from "@/components/sudoku/helperButtons/HelperButtons";
+import SudokuBoardComponent from "@/components/sudoku/SudokuBoard";
 
 
 const Sudoku = () => {
@@ -18,7 +18,7 @@ const Sudoku = () => {
       </header>
       <main className="my-6 mx-auto w-[90%] lg:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div className="lg:col-span-2">
-          <SudokuGame/>
+          <SudokuBoardComponent/>
         </div>
         <div className="flex flex-col">
           <HelperButtons/>

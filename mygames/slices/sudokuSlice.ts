@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
-import { sudokuTemplate } from '@/common/sudoku/data';
+import { SUDOKU_TEMPLATE } from '@/common/sudoku/data';
 import { SudokuBoard, SudokuCell } from '@/common/sudoku/interfaces';
 
 interface SudokuState {
@@ -8,7 +8,7 @@ interface SudokuState {
 }
 
 const initialState: SudokuState = {
-  board: sudokuTemplate
+  board: SUDOKU_TEMPLATE
 };
 
 const sudokuSlice = createSlice({

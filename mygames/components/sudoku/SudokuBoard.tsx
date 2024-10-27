@@ -9,7 +9,7 @@ import { selectButton, resetSelectedButton } from '@/slices/selectedButtonSlice'
 import { REDO, UNDO } from '@/common/sudoku/constants';
 import { SudokuBoard } from '@/common/sudoku/interfaces';
 
-const SudokuGame: FC = () => {
+const SudokuBoardComponent: FC = () => {
 
   const [selectedCell, setSelectedCell] = useState<number[]>([]);
   const [previousCell, setPreviousCell] = useState<number[]>([]);
@@ -117,4 +117,4 @@ const SudokuGame: FC = () => {
   )
 };
 
-export default SudokuGame;
+export default SudokuBoardComponent;
