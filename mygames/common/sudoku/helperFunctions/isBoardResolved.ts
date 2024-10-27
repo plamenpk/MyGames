@@ -1,18 +1,19 @@
 import { SUDOKU_3, SUDOKU_3X3 } from "../constants";
+import { SudokuBoard } from "../interfaces";
 
-export const isFilled = (board: (number | null)[][]) => {
+export const isFilled = (board: SudokuBoard) => {
 
   return !board.map(row => row.includes(null)).includes(true)
 }
 
-const areRowsValid = (board: (number | null)[][]) => {
+const areRowsValid = (board: SudokuBoard) => {
 
   return !board
     .map(row => new Set(row).size === SUDOKU_3X3)
     .includes(false)
 }
 
-const transposeBoard = (board: (number | null)[][]) => {
+const transposeBoard = (board: SudokuBoard) => {
   const matrix = board.map(row => [...row])
   const rows = matrix.length;
   const cols = matrix[0].length;
@@ -27,13 +28,13 @@ const transposeBoard = (board: (number | null)[][]) => {
   return transposed;
 };
 
-const areColumnsValid = (board: (number | null)[][]) => {
+const areColumnsValid = (board: SudokuBoard) => {
   const matrix = transposeBoard(board)
 
   return areRowsValid(matrix)
 }
 
-const isSubGridValid = (board: (number | null)[][], startRow: number, startCol: number) => {
+const isSubGridValid = (board: SudokuBoard, startRow: number, startCol: number) => {
   const subGrid = new Set();
 
   for (let rowIndex = 0; rowIndex < 3; rowIndex++) {
@@ -46,7 +47,7 @@ const isSubGridValid = (board: (number | null)[][], startRow: number, startCol: 
   return subGrid.size === 9;
 };
 
-const isSubGridsValid = (board: (number | null)[][]) => {
+const isSubGridsValid = (board: SudokuBoard) => {
   for (let row = 0; row < SUDOKU_3X3; row += SUDOKU_3) {
     for (let col = 0; col < SUDOKU_3X3; col += SUDOKU_3) {
       if (!isSubGridValid(board, row, col)) {
@@ -58,7 +59,7 @@ const isSubGridsValid = (board: (number | null)[][]) => {
   return true;
 }
 
-export const isBoardResolved = (board: (number | null)[][]) => {
+export const isBoardResolved = (board: SudokuBoard) => {
 
   return (isFilled(board) && areRowsValid(board) && areColumnsValid(board) && isSubGridsValid(board));
 }
