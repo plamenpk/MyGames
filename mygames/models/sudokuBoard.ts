@@ -1,9 +1,10 @@
+import { SudokuBoard } from '@/common/sudoku/interfaces';
 import mongoose, { Schema, Document, models } from 'mongoose';
 
 export interface NewSudokuBoard extends Document {
   board: {
     author: string,
-    board: (number | null)[][]
+    board: SudokuBoard
   }
 }
 
@@ -20,7 +21,7 @@ const SudokuBoardSchema: Schema = new Schema({
   }
 });
 
-const SudokuBoard = models.sudokuBoard || mongoose.model<NewSudokuBoard>('sudokuBoard', SudokuBoardSchema);
+const NewSudokuBoard = models.sudokuBoard || mongoose.model<NewSudokuBoard>('sudokuBoard', SudokuBoardSchema);
 
-export default SudokuBoard;
+export default NewSudokuBoard;
 

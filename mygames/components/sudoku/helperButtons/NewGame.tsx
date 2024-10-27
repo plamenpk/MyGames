@@ -4,9 +4,10 @@ import { NewSudokuBoard } from "@/models/sudokuBoard";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { handleNewGame } from "@/common/sudoku/helperFunctions/handleNewGame";
+import { SudokuBoard } from "@/common/sudoku/interfaces";
 
 const NewGame = () => {
-  const [boards, setBoards] = useState<(number | null)[][][] | undefined>([]);
+  const [boards, setBoards] = useState<SudokuBoard[] | undefined>([]);
   const dispatch = useDispatch();
 
   const fetchBoards = async () => {

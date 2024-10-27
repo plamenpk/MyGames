@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectMongoDB } from '@/lib/mongodb';
-import SudokuBoard from '@/models/sudokuBoard';
+import NewSudokuBoard from '@/models/sudokuBoard';
 
 export const POST = async (req: NextRequest,) => {
 
   try {
     const { author, board } = await req.json();
     await connectMongoDB();
-    await SudokuBoard.create({ board: { author, board } });
+    await NewSudokuBoard.create({ board: { author, board } });
     
     return NextResponse.json({ message: "New sudoku board saved." }, { status: 201 });
   } catch (error) {

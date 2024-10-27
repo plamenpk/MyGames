@@ -23,7 +23,7 @@ const sudokuSlice = createSlice({
       const { row, col } = action.payload;
       state.board[row][col] = null;
     },
-    updateBoard: (state, action: PayloadAction<SudokuCell[][]>) => {
+    updateBoard: (state, action: PayloadAction<SudokuBoard>) => {
       state.board = action.payload;
     }
   },

@@ -1,11 +1,11 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import SudokuBoard from "@/models/sudokuBoard";
+import NewSudokuBoard from "@/models/sudokuBoard";
 import { NextResponse, NextRequest } from "next/server";
 
 export const POST = async (req: NextRequest) => {
   try {
     await connectMongoDB();
-    const boards = await SudokuBoard.find({});
+    const boards = await NewSudokuBoard.find({});
     return NextResponse.json(boards);
   } catch (error) {
     console.log(error);
