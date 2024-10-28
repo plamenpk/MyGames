@@ -3,7 +3,7 @@ import { setSelectedNumber } from "@/slices/selectedNumberSlice";
 
 export const handleInputSudokuBoard = (dispatch: Dispatch<any>) => {
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     if (value === '' || /^[1-9]$/.test(value)) {

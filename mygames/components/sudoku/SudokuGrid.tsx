@@ -17,7 +17,7 @@ const SudokuGrid: React.FC<SudokuGridProps> = ({ gameBoard, handleInputChange, h
                   ${rowIndex === 0 ? 'border-t' : ''}`}
                 value={cell !== null ? cell.toString() : ''}
                 maxLength={1}
-                onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
+                onChange={(e) => handleInputChange(e)}
                 onClick={handleOnClick ? () => handleOnClick(rowIndex, colIndex) : undefined}
               />
             ))}

@@ -5,7 +5,7 @@ export interface SudokuPageProp {
 }
 export interface SudokuGridProps {
   gameBoard: SudokuBoard;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => void;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleOnClick?: (rowIndex: number, colIndex: number) => void;
 }
 
