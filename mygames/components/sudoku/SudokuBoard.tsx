@@ -8,6 +8,7 @@ import SudokuGrid from './SudokuGrid';
 import { selectButton, resetSelectedButton } from '@/slices/selectedButtonSlice';
 import { REDO, UNDO } from '@/common/sudoku/constants';
 import { SudokuBoard } from '@/common/sudoku/interfaces';
+import { handleInputSudokuBoard } from '@/common/sudoku/helperFunctions/handleInputSudokuBoard';
 
 const SudokuBoardComponent: FC = () => {
 
@@ -19,16 +20,6 @@ const SudokuBoardComponent: FC = () => {
   const gameBoard = useSelector(selectBoard);
   const [logUndo, setLogUndo] = useState<SudokuBoard[]>([gameBoard]);
   const [logRedo, setLogRedo] = useState<SudokuBoard>([]);
-
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, row: number, col: number) => {
-    const value = e.target.value;
-
-    if (value === '' || /^[1-9]$/.test(value)) {
-      const numericValue = value === '' ? null : Number(e.target.value);
-      dispatch(setSelectedNumber(numericValue));
-    }
-  };
 
   const handleOnClick = (rowIndex: number, colIndex: number) => {
     const num = gameBoard[rowIndex][colIndex];
@@ -111,7 +102,7 @@ const SudokuBoardComponent: FC = () => {
   return (
     <SudokuGrid
       gameBoard={gameBoard}
-      handleInputChange={handleInputChange}
+      handleInputChange={() => handleInputSudokuBoard(dispatch)}
       handleOnClick={handleOnClick}
     />
   )

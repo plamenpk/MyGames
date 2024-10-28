@@ -1,9 +1,10 @@
+import { SudokuCell } from '@/common/sudoku/interfaces';
 import { RootState } from '@/store/store';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface SelectedNumberState {
-  value: number | null;
+  value: SudokuCell;
 }
 
 const initialState: SelectedNumberState = {
@@ -14,7 +15,7 @@ export const selectedNumberSlice = createSlice({
   name: 'selectedNumber',
   initialState,
   reducers: {
-    setSelectedNumber: (state, action: PayloadAction<number | null>) => {
+    setSelectedNumber: (state, action: PayloadAction<SudokuCell>) => {
       state.value = action.payload;
     },
     resetSelectedNumber: (state) => {
