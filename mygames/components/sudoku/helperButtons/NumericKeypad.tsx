@@ -6,11 +6,7 @@ import { setSelectedNumber } from "@/slices/selectedNumberSlice";
 
 const NumericKeypad = () => {
   const dispatch = useDispatch();
-  const handleOnClick = (num: number) => {
-    dispatch(setSelectedNumber(num));
-
-  };
-
+  
   return (
     <>
       <div id='SudokuBoard' className="mt-2 pt-2 w-full max-w-md">
@@ -21,7 +17,7 @@ const NumericKeypad = () => {
                 <button
                   key={colIndex}
                   className="w-full h-full text-center text-4xl text-blue-600 hover:text-blue-800 hover:bg-blue-100 font-medium border rounded border-blue-600"
-                  onClick={() => handleOnClick(cell)}
+                  onClick={() => dispatch(setSelectedNumber(cell))}
                 >{cell}</button>
               ))}
             </React.Fragment>
