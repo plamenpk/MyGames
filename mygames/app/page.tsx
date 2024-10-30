@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <header className="flex gap-40 mx-auto my-12 w-11/12 max-w-5xl">
-        <div className="w-[25rem] h-[25rem] pl-10">
+        <div className="w-[20rem] h-[20rem]">
           <ImageSlideshow />
         </div>
         <div>

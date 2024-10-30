@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import sudoku1 from '@/assets/sudoku1.jpg';
-import sudoku2 from '@/assets/sudoku2.jpg';
-import sudoku3 from '@/assets/sudoku3.webp';
+import sudoku2 from '@/assets/sudoku2.png';
+import sudoku3 from '@/assets/sudoku3.png';
 import sudoku4 from '@/assets/sudoku4.jpg';
 import sudoku5 from '@/assets/sudoku5.png';
+import sudoku6 from '@/assets/sudoku6.png';
 import classes from './imageSlideshow.module.css';
 
 const images = [
@@ -16,6 +17,7 @@ const images = [
   { image: sudoku3, alt: 'sudoku 3' },
   { image: sudoku4, alt: 'sudoku 4' },
   { image: sudoku5, alt: 'sudoku 5' },
+  { image: sudoku6, alt: 'sudoku 6' }
 ];
 
 export default function ImageSlideshow() {
@@ -26,7 +28,7 @@ export default function ImageSlideshow() {
       setCurrentImageIndex((prevIndex) =>
         prevIndex < images.length - 1 ? prevIndex + 1 : 0
       );
-    }, 5000); // Change the interval as needed
+    }, 3000); // Change the interval as needed
 
     return () => clearInterval(interval);
   }, []);
