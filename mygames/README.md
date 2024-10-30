@@ -30,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## User Interface
 Home page:
-![User Interface Example](/assets/UI/HomePage.png)
+![User Interface Example](/mygames/assets/UI/HomePage.png)
 You can log or register:
 ![User Interface Example](/assets/UI/Register.png)
 Games:
