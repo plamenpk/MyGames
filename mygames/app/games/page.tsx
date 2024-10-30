@@ -1,6 +1,6 @@
 import CardForm from "@/components/UI/CardForm";
 import logoTicTocToe from"@/assets/tic-tac-toe2.png";
-import logoSudoku from "@/assets/sudoku4.jpg";
+import logoSudoku from "@/assets/sudoku6.png"
 
 const GamesPage = () => {
 
