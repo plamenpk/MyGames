@@ -32,19 +32,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Home page:
 ![User Interface Example](/mygames/assets/UI/HomePage.png)
 You can log or register:
-![User Interface Example](/assets/UI/Register.png)
+![User Interface Example](/mygames/assets/UI/Register.png)
 Games:
-![User Interface Example](/assets/UI/Games.png)
+![User Interface Example](/mygames/assets/UI/Games.png)
 Tic-tac-toe game: <br>
 You can change player alias and play <br>
 below the game board appear game log.
-![User Interface Example](/assets/UI/ticTacToe.png)
+![User Interface Example](/mygames/assets/UI/ticTacToe.png)
 Sudoku game:<br>
 You can change cell number using the keyboard or numeric keypad in the right on the screen.<br>
 `New Game` button will reset the board with new one.<br>
 `undo` button gives you the necessary back steps .<br>
 `redo` button takes you one step ahead.<br>
-![User Interface Example](/assets/UI/sudoku.png)
+![User Interface Example](/mygames/assets/UI/sudoku.png)
 New game:<br> You can shear board of you choice and upload it on the database.
-![User Interface Example](/assets/UI/newSudoku.png)
+![User Interface Example](/mygames/assets/UI/newSudoku.png)
 ## Happy puzzling!
