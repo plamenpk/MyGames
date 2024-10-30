@@ -17,12 +17,9 @@ import {
   Transition,
 } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
+  HashtagIcon,
+  RectangleGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -35,8 +32,8 @@ import { resetUserState } from "@/slices/userStateSlice";
 import { useDispatch } from "react-redux";
 
 const products = [
-  { name: 'Tic Tac Toe', description: '', href: '/games/ticTocToe', icon: ChartPieIcon },
-  { name: 'Sudoku', description: '', href: '/games/sudoku', icon: CursorArrowRaysIcon },
+  { name: 'Tic Tac Toe', description: '', href: '/games/ticTocToe', icon: HashtagIcon },
+  { name: 'Sudoku', description: '', href: '/games/sudoku', icon: RectangleGroupIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
