@@ -26,6 +26,18 @@ Finally, after the installation is complete run:
 ```bash
  npm run dev
  ```
+ Create a .env file in the root (in mygames folder), and paste inside:
+ ```
+NEXTAUTH_URL = http://localhost:3000/
+```
+```
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+ ```
+ and
+ ```
+ MONGODB_URI = mongodb+srv://*username*:*password*@cluster0.vtntber.mongodb.net/*clusterName*
+ ```
+ `*username*`,<br> `*password*`,<br> `*clusterName*`<br> are your credentials provided from Mongodb.<br>
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## User Interface
